@@ -1,0 +1,2 @@
+# verydeli
+Food delivery application
