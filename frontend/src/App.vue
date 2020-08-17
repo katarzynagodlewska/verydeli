@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view></router-view>
+    <router-view>
+      <div>
+        <span class="text-repetateble-vertically">verydeli</span>
+      </div>
+    </router-view>
     <Footer />
   </div>
 </template>
@@ -16,7 +20,6 @@ export default {
 };
 </script>
 
-<style>
-#app {
-}
+<style lang="scss">
+@import "../styles/scss/main.scss";
 </style>
