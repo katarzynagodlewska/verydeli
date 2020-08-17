@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeliApi", "VeryDeliApi\VeryDeliApi.csproj", "{1BA0C5B5-11AF-42C3-935E-51CC3ACCC6A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Api", "VeryDeliApi\VeryDeli.Api.csproj", "{1BA0C5B5-11AF-42C3-935E-51CC3ACCC6A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Data", "VeryDeli.Data\VeryDeli.Data.csproj", "{C57CE776-FE76-427E-8B71-BC527EB4F813}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AF39CD69-3DCA-4530-AB96-E978E8AE3E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Tests.Integration", "Tests\VeryDeli.Tests.Integration\VeryDeli.Tests.Integration.csproj", "{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Tests.Unit", "Tests\VeryDeli.Tests.Unit\VeryDeli.Tests.Unit.csproj", "{285C6092-62AD-4671-A293-6E8EFED86637}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +23,25 @@ Global
 		{1BA0C5B5-11AF-42C3-935E-51CC3ACCC6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BA0C5B5-11AF-42C3-935E-51CC3ACCC6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BA0C5B5-11AF-42C3-935E-51CC3ACCC6A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57CE776-FE76-427E-8B71-BC527EB4F813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57CE776-FE76-427E-8B71-BC527EB4F813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57CE776-FE76-427E-8B71-BC527EB4F813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57CE776-FE76-427E-8B71-BC527EB4F813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285C6092-62AD-4671-A293-6E8EFED86637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285C6092-62AD-4671-A293-6E8EFED86637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285C6092-62AD-4671-A293-6E8EFED86637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285C6092-62AD-4671-A293-6E8EFED86637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30C5E5B9-4D58-4BC6-B508-70AA19E616BE} = {AF39CD69-3DCA-4530-AB96-E978E8AE3E53}
+		{285C6092-62AD-4671-A293-6E8EFED86637} = {AF39CD69-3DCA-4530-AB96-E978E8AE3E53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E0E3F90-7D9D-41CE-A225-2284C7CFFCCA}
