@@ -4,6 +4,7 @@
     <div>
       <span class="text-repetateble-vertically">verydeli</span>
     </div>
+    <router-view />
     <Footer />
   </div>
 </template>
