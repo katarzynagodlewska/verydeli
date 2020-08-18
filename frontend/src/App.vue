@@ -9,16 +9,18 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { Component, Vue } from "vue-property-decorator";
+
 import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
-export default Vue.extend({
-  name: "App",
+@Component({
   components: {
     Footer,
     Navbar,
   },
-});
+  name: "App",
+})
+export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>

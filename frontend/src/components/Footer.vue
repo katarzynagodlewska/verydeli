@@ -23,18 +23,36 @@
       <p>Created by Katarzyna Godlewska</p>
       <ul class="social">
         <li class="social__item">
-          <a class="social__link" href="https://www.facebook.com/katarzyna.godlewska.71">
-            <img class="social__icon" src="../assets/img/icon-fb.svg" alt="facebook" />
+          <a
+            class="social__link"
+            href="https://www.facebook.com/katarzyna.godlewska.71"
+          >
+            <img
+              class="social__icon"
+              src="../assets/img/icon-fb.svg"
+              alt="facebook"
+            />
           </a>
         </li>
         <li class="social__item">
           <a class="social__link" href="https://github.com/katarzynagodlewska">
-            <img class="social__icon" src="../assets/img/icon-github.svg" alt="github" />
+            <img
+              class="social__icon"
+              src="../assets/img/icon-github.svg"
+              alt="github"
+            />
           </a>
         </li>
         <li class="social__item">
-          <a class="social__link" href="https://www.instagram.com/world_around_kate/">
-            <img class="social__icon" src="../assets/img/icon-instagram.svg" alt="instagram" />
+          <a
+            class="social__link"
+            href="https://www.instagram.com/world_around_kate/"
+          >
+            <img
+              class="social__icon"
+              src="../assets/img/icon-instagram.svg"
+              alt="instagram"
+            />
           </a>
         </li>
       </ul>
@@ -43,6 +61,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-export default Vue.extend({});
+import { Component, Vue } from "vue-property-decorator";
+@Component({
+  components: {},
+  name: "Footer",
+})
+export default class Footer extends Vue {}
 </script>
