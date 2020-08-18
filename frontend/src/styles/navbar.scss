@@ -1,0 +1,13 @@
+.box-to-log-and-register {
+    display: none;
+    margin-top: -4px;
+    &:hover {
+        display: block;
+    }
+}
+
+.icon-log {
+    &:hover + .box-to-log-and-register {
+        display: block;
+    }
+}
