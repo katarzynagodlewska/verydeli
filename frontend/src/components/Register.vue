@@ -10,29 +10,38 @@
         name="register-email>"
       />
       <label class="register__name--label" for="register-name">Name</label>
-      <input class="register__name--input" type="text" v-model="user.name" name="register-name>" />
-      <label class="register__surname--label" for="register-surname">Surname</label>
+      <input
+        class="register__name--input"
+        type="text"
+        v-model="user.name"
+        name="register-name>"
+      />
+      <label class="register__surname--label" for="register-surname"
+        >Surname</label
+      >
       <input
         class="register__surname--input"
         type="text"
         v-model="user.surname"
         name="register-surname>"
       />
-      <label class="register__password--label" for="register-password">Password</label>
+      <label class="register__password--label" for="register-password"
+        >Password</label
+      >
       <input
         class="register__password--input"
         type="password"
         v-model="user.password"
         name="register-password>"
       />
-      <button type="submit">SUBMIT</button>
+      <button class="button-sign-up" type="submit">Sign up</button>
     </form>
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-//import { User } from "../models/interfaces/User";
+import { User } from "../models/interfaces/User";
 
 @Component({
   components: {},
@@ -44,21 +53,13 @@ export default class Register extends Vue {
     console.log(this.user);
     this.user.name = "tes2name";
   }
-
-  public user: any = {
+  //TODO
+  public user: User = {
     name: "",
     surname: "",
     email: "",
     password: "",
   };
-  // @Prop({ type: Object as () => User }) public user!: User;
-  // @Prop() readonly msg!: string;
-  //  private user: User = {
-  //     email: "";
-  //     name: "";
-  //     surname: "";
-  //     password: "";
-  //   };,
   public handleSubmit() {
     console.log("submmit");
     console.log(this.user);
