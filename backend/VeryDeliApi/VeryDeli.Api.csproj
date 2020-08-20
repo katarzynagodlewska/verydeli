@@ -15,5 +15,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VeryDeli.Data\VeryDeli.Data.csproj" />
+  </ItemGroup>
+
 
 </Project>

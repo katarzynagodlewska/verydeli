@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VeryDeli.Api.Extensions.Startup;
 using VeryDeli.Api.Options;
+using VeryDeli.Data.Extensions.Startup;
 
 namespace VeryDeli.Api
 {
@@ -22,6 +23,7 @@ namespace VeryDeli.Api
         {
             services.AddControllers();
             services.AddSwaggerConfiguration();
+            services.AddDatabaseConfiguration(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,6 +32,11 @@ namespace VeryDeli.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
 
             var swaggerOptions = new SwaggerOptions();
