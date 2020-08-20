@@ -8,13 +8,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Api", "VeryDeliApi
 		{C57CE776-FE76-427E-8B71-BC527EB4F813} = {C57CE776-FE76-427E-8B71-BC527EB4F813}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Data", "VeryDeli.Data\VeryDeli.Data.csproj", "{C57CE776-FE76-427E-8B71-BC527EB4F813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Data", "VeryDeli.Data\VeryDeli.Data.csproj", "{C57CE776-FE76-427E-8B71-BC527EB4F813}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AF39CD69-3DCA-4530-AB96-E978E8AE3E53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Tests.Integration", "Tests\VeryDeli.Tests.Integration\VeryDeli.Tests.Integration.csproj", "{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Tests.Integration", "Tests\VeryDeli.Tests.Integration\VeryDeli.Tests.Integration.csproj", "{30C5E5B9-4D58-4BC6-B508-70AA19E616BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Tests.Unit", "Tests\VeryDeli.Tests.Unit\VeryDeli.Tests.Unit.csproj", "{285C6092-62AD-4671-A293-6E8EFED86637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Tests.Unit", "Tests\VeryDeli.Tests.Unit\VeryDeli.Tests.Unit.csproj", "{285C6092-62AD-4671-A293-6E8EFED86637}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Data.Seeder", "VeryDeli.Data.Seeder\VeryDeli.Data.Seeder.csproj", "{44F598D8-198E-4E39-A9C6-CD691C451C95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{285C6092-62AD-4671-A293-6E8EFED86637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{285C6092-62AD-4671-A293-6E8EFED86637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{285C6092-62AD-4671-A293-6E8EFED86637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F598D8-198E-4E39-A9C6-CD691C451C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F598D8-198E-4E39-A9C6-CD691C451C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F598D8-198E-4E39-A9C6-CD691C451C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F598D8-198E-4E39-A9C6-CD691C451C95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

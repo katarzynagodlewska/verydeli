@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
-    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Implementation\" />
   </ItemGroup>
 
   <ItemGroup>
