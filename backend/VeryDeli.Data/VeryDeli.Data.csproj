@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200820201826_InitializeDatabase.cs" />
+    <Compile Remove="Migrations\20200820201826_InitializeDatabase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Enums\" />
     <Folder Include="Repositories\" />
   </ItemGroup>

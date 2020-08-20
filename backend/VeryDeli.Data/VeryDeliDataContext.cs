@@ -11,5 +11,18 @@ namespace VeryDeli.Data
         public VeryDeliDataContext(DbContextOptions options) : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<IdentityRole<Guid>>().ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("UserToken");
+        }
     }
 }

@@ -20,6 +20,5 @@ namespace VeryDeli.Data.Extensions.Startup
 
             return services;
         }
-
     }
 }
