@@ -1,9 +1,6 @@
 <template>
   <div id="app">
     <Navbar />
-    <div>
-      <span class="text-repetateble-vertically">verydeli</span>
-    </div>
     <router-view />
     <Footer />
   </div>
@@ -25,6 +22,6 @@ import Navbar from "./components/Navbar.vue";
 export default class App extends Vue {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "styles/main.scss";
 </style>

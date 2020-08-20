@@ -1,5 +1,14 @@
-.text-repetateble-vertically {
-  display: inline;
-  position: absolute;
-  transform: rotate(-90deg);
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Open+Sans:wght@300;400;600;700&display=swap");
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  background-image: url("./assets/img/verydeliverydeliverydeli.svg");
+  background-repeat: repeat-y;
+  background-position: 2rem;
+  margin: 0 1rem 0 5rem;
 }

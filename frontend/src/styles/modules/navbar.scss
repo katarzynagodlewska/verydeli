@@ -1,0 +1,55 @@
+@import "../variables.scss";
+
+.box-to-log-and-register {
+    display: none;
+    background: $light-grey;
+    min-width: 5rem;
+    height: auto;
+    margin: 3rem 0rem 1rem 1rem;
+    padding: 8px;
+    position: absolute;
+    border-radius: 4px;
+    &:hover {
+        display: block;
+    }
+}
+
+.icon-log {
+    height: 2.25rem;
+    margin: 1rem 2rem 1rem 1rem;
+    cursor: pointer;
+    &:hover + .box-to-log-and-register {
+        display: inline-block;
+    }
+}
+@mixin link-box {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.link-box-login {
+    @include link-box;
+    margin: 0 4px 8px 4px;
+}
+
+.link-box-register {
+    @include link-box;
+    border-top: solid 1px $grey;
+    padding-top: 4px;
+    margin: 4px;
+}
+
+.link {
+    font-weight: 600;
+    text-decoration-line: none;
+    outline: none;
+    color: black;
+    &:active {
+        color: $lime;
+    }
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
