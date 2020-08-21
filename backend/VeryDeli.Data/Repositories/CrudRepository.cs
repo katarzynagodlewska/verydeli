@@ -8,7 +8,7 @@ namespace VeryDeli.Data.Repositories
     public class CrudRepository<T> : IRepository<T> where T : class
     {
         protected readonly VeryDeliDataContext Context;
-        private readonly DbSet<T> _table = null;
+        private readonly DbSet<T> _table;
 
         public CrudRepository(VeryDeliDataContext context)
         {
