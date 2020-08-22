@@ -1,23 +1,43 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VeryDeli.Api.Commands;
+using VeryDeli.Api.Commands.Handlers.Interfaces;
+using VeryDeli.Api.Queries.Handlers.Interfaces;
 
 namespace VeryDeli.Api.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserController : Controller
     {
+        private readonly IUserCommandHandler _userCommandHandler;
+        private readonly IUserQueryHandler _userQueryHandler;
+
+        public UserController(IUserCommandHandler userCommandHandler, IUserQueryHandler userQueryHandler)
+        {
+            _userCommandHandler = userCommandHandler;
+            _userQueryHandler = userQueryHandler;
+        }
         //TODO
-        [HttpPost("api/user/register")]
-        public async Task<IActionResult> Register()
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterUserCommand registerUserCommand)
         {
 
             return Ok();
         }
 
-        [HttpPost("api/user/login")]
-        public async Task<IActionResult> Login()
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand loginUserCommand)
         {
-
-            return Ok();
+            try
+            {
+                return Ok(await _userCommandHandler.Handle(loginUserCommand));
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
     }
 }
