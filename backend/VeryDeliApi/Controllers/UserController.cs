@@ -23,8 +23,14 @@ namespace VeryDeli.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserCommand registerUserCommand)
         {
-
-            return Ok();
+            try
+            {
+                return Ok(await _userCommandHandler.Handle(registerUserCommand));
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost("login")]

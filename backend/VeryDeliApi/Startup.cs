@@ -22,8 +22,10 @@ namespace VeryDeli.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddJwtConfiguration(Configuration);
             services.AddSwaggerConfiguration();
             services.AddDatabaseConfiguration(Configuration);
+            services.RegisterComponents();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
