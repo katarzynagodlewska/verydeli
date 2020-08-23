@@ -1,87 +1,39 @@
 ﻿using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
 using VeryDeli.Api.Commands.Handlers.Interfaces;
-using VeryDeli.Api.Options;
 using VeryDeli.Api.Responses.User;
+using VeryDeli.Api.Services.Abstraction;
+using VeryDeli.Data;
 using VeryDeli.Data.Domains;
+using VeryDeli.Data.Repositories.Abstraction;
 
 namespace VeryDeli.Api.Commands.Handlers
 {
     public class UserCommandHandler : IUserCommandHandler
     {
-        private readonly UserManager<User> _userManager;
-        private readonly JwtOptions _jwtOptions;
+        private readonly IUserService _userService;
 
-        public UserCommandHandler(UserManager<User> userManager, JwtOptions jwtOptions)
+        public UserCommandHandler(IUserService userService)
         {
-            _userManager = userManager;
-            _jwtOptions = jwtOptions;
+            _userService = userService;
         }
 
         public async Task<LoginResponse> Handle(LoginUserCommand loginUserCommand)
         {
-            var user = await GetUser(loginUserCommand.Login);
+            var user = await _userService.GetUser(loginUserCommand.Login);
 
-            var userHasValidPassword = await _userManager.CheckPasswordAsync(user, loginUserCommand.Password);
+            var userHasValidPassword = await _userService.CheckPasswordAsync(user, loginUserCommand.Password);
 
             if (!userHasValidPassword)
                 throw new Exception("Password does not match login.");
 
-            return GenerateAuthResultForUserAsync(user);
-        }
-
-        public async Task<User> GetUser(string login, bool isRequired = true)
-        {
-            var user = await _userManager.FindByEmailAsync(login);
-
-            if (user != null)
-                return user;
-
-            user = await _userManager.FindByNameAsync(login);
-
-            if (user == null && isRequired)
-                throw new Exception("User does not exist.");
-
-            return null;
-        }
-
-        private LoginResponse GenerateAuthResultForUserAsync(IdentityUser<Guid> user)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret);
-            var expiryDate = DateTime.UtcNow.Add(_jwtOptions.TokenLifetime);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim("id", user.Id.ToString())
-                }),
-                Expires = expiryDate,
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return new LoginResponse
-            {
-                Token = tokenHandler.WriteToken(token),
-            };
+            return _userService.GenerateAuthResultForUserAsync(user);
         }
 
         public async Task<RegisterResponse> Handle(RegisterUserCommand registerUserCommand)
         {
-            var user = await GetUser(registerUserCommand.Login, false);
+            var user = await _userService.GetUser(registerUserCommand.Login, false);
 
             if (user != null)
                 throw new Exception(
@@ -93,7 +45,7 @@ namespace VeryDeli.Api.Commands.Handlers
                 UserName = registerUserCommand.Login
             };
 
-            var createdUser = await _userManager.CreateAsync(newUser, registerUserCommand.Password);
+            var createdUser = await _userService.CreateAsync(newUser, registerUserCommand.Password);
 
             if (!createdUser.Succeeded)
                 throw new Exception(createdUser.Errors.Select(e => e.Description).ToString());

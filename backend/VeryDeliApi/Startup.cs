@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VeryDeli.Api.Extensions.Startup;
+using VeryDeli.Api.Middlewares;
 using VeryDeli.Api.Options;
 using VeryDeli.Data.Extensions.Startup;
 
@@ -21,11 +22,12 @@ namespace VeryDeli.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddJwtConfiguration(Configuration);
-            services.AddSwaggerConfiguration();
             services.AddDatabaseConfiguration(Configuration);
             services.RegisterComponents();
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,8 +54,8 @@ namespace VeryDeli.Api
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
             app.UseAuthorization();
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

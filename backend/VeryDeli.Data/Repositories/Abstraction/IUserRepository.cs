@@ -1,8 +1,9 @@
-﻿using VeryDeli.Data.Domains;
+﻿using System;
+using VeryDeli.Data.Domains;
 
 namespace VeryDeli.Data.Repositories.Abstraction
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<User, Guid>
     {
     }
 }

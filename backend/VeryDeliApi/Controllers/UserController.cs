@@ -19,7 +19,7 @@ namespace VeryDeli.Api.Controllers
             _userCommandHandler = userCommandHandler;
             _userQueryHandler = userQueryHandler;
         }
-        //TODO
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserCommand registerUserCommand)
         {

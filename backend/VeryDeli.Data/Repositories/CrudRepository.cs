@@ -5,7 +5,7 @@ using VeryDeli.Data.Repositories.Abstraction;
 
 namespace VeryDeli.Data.Repositories
 {
-    public class CrudRepository<T> : IRepository<T> where T : class
+    public class CrudRepository<T, TK> : IRepository<T, TK> where T : class
     {
         protected readonly VeryDeliDataContext Context;
         private readonly DbSet<T> _table;
@@ -26,7 +26,7 @@ namespace VeryDeli.Data.Repositories
         {
             return _table.AsQueryable();
         }
-        public async Task<T> GetById(object id)
+        public async Task<T> GetById(TK id)
         {
             return await _table.FindAsync(id);
         }
@@ -36,7 +36,7 @@ namespace VeryDeli.Data.Repositories
             _table.Remove(entity);
             await Context.SaveChangesAsync();
         }
-        public async Task RemoveById(object id)
+        public async Task RemoveById(TK id)
         {
             var entity = await GetById(id);
             await Remove(entity);
