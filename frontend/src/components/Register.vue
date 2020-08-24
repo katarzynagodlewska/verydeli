@@ -1,7 +1,7 @@
 <template>
   <section class="register">
-    <h2 class="register_title">REGISTER</h2>
-    <form @submit.prevent="handleSubmit">
+    <h2 class="register__title">REGISTER</h2>
+    <form @submit.prevent="handleSubmit" class="register__form">
       <label class="register__email--label" for="register-email">Email</label>
       <input
         class="register__email--input"
@@ -10,24 +10,15 @@
         name="register-email>"
       />
       <label class="register__name--label" for="register-name">Name</label>
-      <input
-        class="register__name--input"
-        type="text"
-        v-model="user.name"
-        name="register-name>"
-      />
-      <label class="register__surname--label" for="register-surname"
-        >Surname</label
-      >
+      <input class="register__name--input" type="text" v-model="user.name" name="register-name>" />
+      <label class="register__surname--label" for="register-surname">Surname</label>
       <input
         class="register__surname--input"
         type="text"
         v-model="user.surname"
         name="register-surname>"
       />
-      <label class="register__password--label" for="register-password"
-        >Password</label
-      >
+      <label class="register__password--label" for="register-password">Password</label>
       <input
         class="register__password--input"
         type="password"
@@ -66,3 +57,7 @@ export default class Register extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../styles/modules/register.scss";
+</style>

@@ -3,10 +3,10 @@
     <img class="icon-log" src="../assets/img/icon-log.svg" />
     <div class="box-to-log-and-register">
       <p class="link-box-login">
-        <a href class="link">Log in</a>
+        <a href="/account" class="link">Log in</a>
       </p>
       <p class="link-box-register">
-        <a href class="link">Sign up</a>
+        <a href="/account" class="link">Sign up</a>
       </p>
     </div>
   </nav>

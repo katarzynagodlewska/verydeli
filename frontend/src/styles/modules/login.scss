@@ -1,0 +1,9 @@
+@import "../_variables.scss";
+@import "../mixins.scss";
+
+.login {
+    @include box-with-form;
+    &__email--label {
+        top: 96px;
+    }
+}

@@ -5,14 +5,9 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/register",
-    name: "register",
-    component: () => import("../components/Register.vue"),
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: () => import("../components/Login.vue"),
+    path: "/account",
+    name: "account",
+    component: () => import("../components/Account.vue"),
   },
 ];
 

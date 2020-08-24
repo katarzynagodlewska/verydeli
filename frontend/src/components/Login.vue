@@ -1,12 +1,12 @@
 <template>
   <section class="login">
-    <h2 class="login_title">LOGIN</h2>
-    <form>
-      <label class="login__username--label" for="login-username">Email</label>
-      <input class="login__username--input" name="login-username" v-model="user.email" type="email" />
+    <h2 class="login__title">LOGIN</h2>
+    <form class="login__form">
+      <label class="login__email--label" for="login-username">Email</label>
+      <input class="login__email--input" name="login-username" v-model="user.email" type="email" />
       <label class="login__password--label" for="login-password">Password</label>
       <input
-        class="login__passwor--input"
+        class="login__password--input"
         name="login-password>"
         v-model="user.password"
         type="password"
@@ -32,3 +32,7 @@ export default class Login extends Vue {
   };
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../styles/modules/login.scss";
+</style>

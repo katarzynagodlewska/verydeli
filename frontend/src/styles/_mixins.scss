@@ -1,0 +1,72 @@
+@mixin box-with-form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0px auto;
+
+    &__email--input {
+        @include form-input;
+    }
+
+    &__email--label {
+        @include form-label;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+    }
+    &__name--input {
+        @include form-input;
+    }
+    &__name--label {
+        @include form-label;
+    }
+    &__title {
+        text-align: center;
+    }
+}
+
+@mixin form-input {
+    font-size: 15px;
+    line-height: 1.5;
+    height: auto;
+    cursor: text;
+    display: inline-block;
+    text-align: start;
+    box-sizing: border-box;
+    background-color: transparent;
+    box-shadow: none;
+    overflow: visible;
+    padding: 11px 0px;
+    margin: 0px 0px 10px;
+    outline: 0px;
+    border-style: none none solid;
+    border-bottom: 1px solid rgb(200, 199, 199);
+    transition: border-color 0.15s ease-in-out 0s, color 0.15s ease-in-out 0s;
+    &:hover {
+        border-color: black;
+    }
+    &:focus {
+        border-color: black;
+    }
+}
+
+@mixin form-label {
+    position: absolute;
+    cursor: text;
+    color: black;
+    font-size: 14px;
+    display: inline-block;
+    transition: all 0.2s ease-out 0s;
+}
+
+@mixin link-box {
+    font-size: 1rem;
+    text-align: center;
+}

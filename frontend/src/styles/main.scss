@@ -1,4 +1,12 @@
+@import "_variables.scss";
+@import "_normalize.scss";
 @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Open+Sans:wght@300;400;600;700&display=swap");
+
+@import "modules/account.scss";
+@import "modules/footer.scss";
+@import "modules/login.scss";
+@import "modules/navbar.scss";
+@import "modules/register.scss";
 
 html {
   font-size: 16px;

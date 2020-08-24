@@ -1,0 +1,6 @@
+@import "../_variables.scss";
+@import "../mixins.scss";
+
+.register {
+    @include box-with-form;
+}
