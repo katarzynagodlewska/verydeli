@@ -5,12 +5,12 @@ using VeryDeli.Data.Repositories.Abstraction;
 
 namespace VeryDeli.Data.Repositories
 {
-    public class CrudRepository<T, TK> : IRepository<T, TK> where T : class
+    public abstract class CrudRepository<T, TK> : IRepository<T, TK> where T : class
     {
         protected readonly VeryDeliDataContext Context;
         private readonly DbSet<T> _table;
 
-        public CrudRepository(VeryDeliDataContext context)
+        protected CrudRepository(VeryDeliDataContext context)
         {
             Context = context;
             _table = Context.Set<T>();

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using VeryDeli.Api.Commands.Handlers.Interfaces;
 using VeryDeli.Api.Responses.User;
 using VeryDeli.Api.Services.Abstraction;
-using VeryDeli.Data;
 using VeryDeli.Data.Domains;
 using VeryDeli.Data.Repositories.Abstraction;
 
@@ -14,7 +13,7 @@ namespace VeryDeli.Api.Commands.Handlers
     {
         private readonly IUserService _userService;
 
-        public UserCommandHandler(IUserService userService)
+        public UserCommandHandler(IUserService userService, IOrderRepository orderRepository)
         {
             _userService = userService;
         }
