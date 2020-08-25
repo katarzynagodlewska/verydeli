@@ -3,11 +3,11 @@
     <h2 class="login__title">LOGIN</h2>
     <form class="login__form">
       <label class="login__email--label" for="login-username">Email</label>
-      <input class="login__email--input" name="login-username" v-model="user.email" type="email" />
+      <input class="login__email--input" id="login-username" v-model="user.email" type="email" />
       <label class="login__password--label" for="login-password">Password</label>
       <input
         class="login__password--input"
-        name="login-password>"
+        id="login-password"
         v-model="user.password"
         type="password"
       />

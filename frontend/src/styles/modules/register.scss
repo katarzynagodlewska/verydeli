@@ -1,6 +1,10 @@
 @import "../_variables.scss";
 @import "../mixins.scss";
 
+.button-sign-up {
+  @include button-submit;
+}
+
 .register {
-    @include box-with-form;
+  @include box-with-form;
 }
