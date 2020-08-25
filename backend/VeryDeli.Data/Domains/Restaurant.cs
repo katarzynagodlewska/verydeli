@@ -5,5 +5,6 @@ namespace VeryDeli.Data.Domains
 {
     public class Restaurant : Entity<Guid>
     {
+        public string Name { get; set; }
     }
 }
