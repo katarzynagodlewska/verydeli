@@ -10,4 +10,10 @@ interface UserLoginModel {
   password: string;
 }
 
-export { UserRegisterModel, UserLoginModel };
+interface UserLoginResponseModel {
+  statusCode: number;
+  token: string;
+  message: string;
+}
+
+export { UserRegisterModel, UserLoginModel, UserLoginResponseModel };

@@ -10,15 +10,24 @@
         id="register-email"
       />
       <label class="register__name--label" for="register-name">Name</label>
-      <input class="register__name--input" type="text" v-model="userData.name" id="register-name" />
-      <label class="register__surname--label" for="register-surname">Surname</label>
+      <input
+        class="register__name--input"
+        type="text"
+        v-model="userData.name"
+        id="register-name"
+      />
+      <label class="register__surname--label" for="register-surname"
+        >Surname</label
+      >
       <input
         class="register__surname--input"
         type="text"
         v-model="userData.surname"
         id="register-surname"
       />
-      <label class="register__password--label" for="register-password">Password</label>
+      <label class="register__password--label" for="register-password"
+        >Password</label
+      >
       <input
         class="register__password--input"
         type="password"
