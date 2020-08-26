@@ -27,4 +27,23 @@ async function login(
   return response;
 }
 
-async function register(userData: UserRegisterModel) {}
+async function register(
+  userData: UserRegisterModel
+): Promise<UserLoginResponseModel> {
+  const requestOptions: RequestInit = {
+    method: "POST",
+    body: JSON.stringify({
+      login: userData.email,
+      password: userData.password,
+      surname: userData.surname,
+      firstname: userData.name,
+    }),
+    headers: { "Content-Type": "application/json", credentials: "include" },
+  };
+
+  const response = (await (
+    await fetch(`${backendUrl}/User/register`, requestOptions)
+  ).json()) as Promise<UserLoginResponseModel>;
+
+  return response;
+}

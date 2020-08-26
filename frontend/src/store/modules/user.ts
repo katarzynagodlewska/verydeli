@@ -1,5 +1,9 @@
 import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
-import { UserLoginModel, UserRegisterModel } from "@/models/interfaces/User.ts";
+import {
+  UserLoginModel,
+  UserRegisterModel,
+  UserLoginResponseModel,
+} from "@/models/interfaces/User.ts";
 import { userService } from "@/services/userService";
 import router from "@/router/";
 
@@ -8,18 +12,22 @@ class UserModule extends VuexModule {
   @Action
   public async login(userData: UserLoginModel): Promise<void> {
     var response = await userService.login(userData);
+    this.processUserLogin(response);
+  }
 
-    if (response.statusCode == 200) {
-      localStorage.setItem("token", response.token);
+  @Action
+  public async register(userData: UserRegisterModel): Promise<void> {
+    var response = await userService.register(userData);
+    this.processUserLogin(response);
+  }
+
+  private processUserLogin(userLoginResponse: UserLoginResponseModel) {
+    if (userLoginResponse.statusCode == 200) {
+      localStorage.setItem("token", userLoginResponse.token);
       router.push("/");
     } else {
       //TODO show message
     }
-  }
-  @Action
-  public register(userData: UserRegisterModel) {
-    console.log(userData);
-    console.log(process.env.VUE_APP_VERYDELI_API_URL_BASE);
   }
 }
 export default UserModule;
