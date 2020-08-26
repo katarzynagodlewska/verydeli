@@ -1,9 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
-import Router from "./router/index";
+import router from "./router";
+import store from "./store/store";
+
+// //styles
+// import "@/assets/styles/app.scss";
+Vue.config.productionTip = false;
 
 new Vue({
-  el: "#app",
-  router: Router,
+  router,
+  store,
   render: (h) => h(App),
-});
+}).$mount("#app");

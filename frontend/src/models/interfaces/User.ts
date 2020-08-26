@@ -1,8 +1,13 @@
-interface User {
+interface UserRegisterModel {
   name: string;
   surname: string;
   email: string;
   password: string;
 }
 
-export { User };
+interface UserLoginModel {
+  email: string;
+  password: string;
+}
+
+export { UserRegisterModel, UserLoginModel };
