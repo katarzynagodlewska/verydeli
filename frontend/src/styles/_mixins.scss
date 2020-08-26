@@ -91,6 +91,12 @@
   font-size: 14px;
 }
 
+@mixin home-img {
+  max-width: 700px;
+  max-height: 300px;
+  margin: 2rem;
+}
+
 @mixin link-box {
   font-size: 1rem;
   text-align: center;
