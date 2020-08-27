@@ -2,7 +2,8 @@
 {
     public enum UserType
     {
-        Customer = 0,
+        User = 1,
+        Customer,
         Restaurant,
         Courier,
         Admin

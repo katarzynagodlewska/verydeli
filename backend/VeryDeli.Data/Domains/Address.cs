@@ -6,6 +6,7 @@ namespace VeryDeli.Data.Domains
     public class Address : Entity<Guid>
     {
         public string Name { get; set; }
-        public AddressPoint AddressPoint { get; set; }
+        public double XCordinate { get; set; }
+        public double YCordinate { get; set; }
     }
 }
