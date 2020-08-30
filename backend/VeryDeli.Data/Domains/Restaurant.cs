@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VeryDeli.Data.Domains
 {
@@ -10,9 +9,9 @@ namespace VeryDeli.Data.Domains
         {
             UserTypeId = Enums.UserType.Restaurant;
         }
-        public Guid AddressId { get; set; }
-        [ForeignKey(nameof(AddressId))]
-        public virtual Address Address { get; set; }
+
+        [Required]
+        public  Address Address { get; set; }
         public List<Order> Orders { get; set; }
         public string Name { get; set; }
         public List<Food> MenuList { get; set; }

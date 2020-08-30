@@ -26,6 +26,34 @@
     <Compile Remove="Migrations\20200826215144_UpdateDatabaseDomains.Designer.cs" />
     <Compile Remove="Migrations\20200826220001_UpdateDatabaseDomains.cs" />
     <Compile Remove="Migrations\20200826220001_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827192217_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827192217_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827192309_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827192309_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827192458_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827192458_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827192615_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827192615_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827193053_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827193053_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827194127_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827194127_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827194400_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827194400_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200827195029_UpdateDatabaseDomains.cs" />
+    <Compile Remove="Migrations\20200827195029_UpdateDatabaseDomains.Designer.cs" />
+    <Compile Remove="Migrations\20200830132436_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830132436_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200830132919_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830132919_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200830134241_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830134241_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200830134403_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830134403_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200830135120_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830135120_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200830135611_UpdateDatabaseDomain.cs" />
+    <Compile Remove="Migrations\20200830135611_UpdateDatabaseDomain.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

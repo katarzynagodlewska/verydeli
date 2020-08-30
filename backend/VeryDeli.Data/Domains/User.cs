@@ -12,6 +12,6 @@ namespace VeryDeli.Data.Domains
         public Enums.UserType UserTypeId { get; set; }
 
         [ForeignKey(nameof(UserTypeId))]
-        public virtual UserType UserType { get; set; }
+        public UserType UserType { get; set; }
     }
 }

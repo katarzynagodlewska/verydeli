@@ -17,6 +17,8 @@ namespace VeryDeli.Data
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Food> Foods { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<OrderedFood> OrderedFoods { get; set; }
+
         public VeryDeliDataContext(DbContextOptions options) : base(options)
         {
         }
@@ -41,19 +43,32 @@ namespace VeryDeli.Data
                 .HasValue<Courier>(Enums.UserType.Courier)
                 .HasValue<Admin>(Enums.UserType.Admin);
 
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Delivery)
+                .WithOne(d => d.Order)
+                .HasForeignKey<Delivery>(d => d.OrderId);
 
-            modelBuilder.Entity<Order>().HasOne(x => x.Courier).WithOne()
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.ReceiverUser)
+                .WithMany(u => u.Orders)
                 .OnDelete(DeleteBehavior.NoAction);
-            modelBuilder.Entity<Order>().HasOne(x => x.Receiver).WithOne()
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.CourierUser)
+                .WithMany(u => u.Orders)
+                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.RestaurantUser)
+                .WithMany(u => u.Orders)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Order>().HasOne(x => x.Restaurant).WithOne()
-                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<OrderedFood>()
+                .HasOne(m => m.Order)
+                .WithMany(o => o.OrderedFood)
+                .HasForeignKey(of => of.OrderId);
 
-            modelBuilder.Entity<Order>().HasOne(x => x.Delivery).WithOne()
-                .OnDelete(DeleteBehavior.NoAction);
-            modelBuilder.Entity<Delivery>().HasOne(x => x.Order).WithOne()
-                .OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<OrderedFood>().HasOne(m => m.Food)
+                .WithMany(f => f.OrderedFood)
+                .HasForeignKey(of => of.FoodId);
         }
     }
 }
