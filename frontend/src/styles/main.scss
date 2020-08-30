@@ -1,5 +1,24 @@
-.text-repetateble-vertically {
-  display: inline;
-  position: absolute;
-  transform: rotate(-90deg);
+@import "_variables.scss";
+@import "_normalize.scss";
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Open+Sans:wght@300;400;600;700&display=swap");
+
+@import "modules/account.scss";
+@import "modules/footer.scss";
+@import "modules/login.scss";
+@import "modules/navbar.scss";
+@import "modules/register.scss";
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  background-image: url("./assets/img/verydeliverydeliverydeli.svg");
+  background-repeat: repeat-y;
+  background-position: 2rem;
+}
+
+.app {
 }
