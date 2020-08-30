@@ -1,0 +1,18 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.home {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+    &__brekfast-img {
+        @include home-img;
+    }
+    &__dinner-img {
+        @include home-img;
+    }
+    &__lunch-img {
+        @include home-img;
+    }
+}

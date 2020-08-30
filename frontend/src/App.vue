@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <Navbar />
-    <div>
-      <span class="text-repetateble-vertically">verydeli</span>
-    </div>
+    <router-view />
     <Footer />
   </div>
 </template>
@@ -13,6 +11,8 @@ import { Component, Vue } from "vue-property-decorator";
 
 import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
+import Home from "./components/Navbar.vue";
+
 @Component({
   components: {
     Footer,
@@ -23,6 +23,6 @@ import Navbar from "./components/Navbar.vue";
 export default class App extends Vue {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "styles/main.scss";
 </style>

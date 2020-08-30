@@ -1,0 +1,13 @@
+@import "../_variables.scss";
+@import "../mixins.scss";
+
+.button-log-in {
+  @include button-submit;
+}
+
+.login {
+  @include box-with-form;
+  &__email--label {
+    top: 96px;
+  }
+}
