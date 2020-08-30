@@ -60,7 +60,7 @@ export default class Register extends Vue {
   @user.Action
   public register!: (userData: UserRegisterModel) => void;
 
-  public handleSubmit() {
+  public submitForm() {
     this.register(this.userData);
   }
 }
