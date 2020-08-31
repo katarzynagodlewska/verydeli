@@ -11,7 +11,6 @@ import { Component, Vue } from "vue-property-decorator";
 
 import Footer from "./components/Footer.vue";
 import Navbar from "./components/Navbar.vue";
-import Home from "./components/Navbar.vue";
 
 @Component({
   components: {
