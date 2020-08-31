@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-on:click="showDiv" class="home__brekfast-img" src="../assets/img/breakfast.png" id="img" />
+    <img v-on:click="showDiv" class="home__breakfast-img" />
     <FoodList v-if="show" />
   </div>
 </template>

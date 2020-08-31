@@ -13,7 +13,11 @@ import FoodItem from "./FoodItem.vue";
 @Component({
   components: { FoodItem },
   name: "FoodList",
-  //TODO get
 })
-export default class FoodList extends Vue {}
+export default class FoodList extends Vue {
+  //TODO get
+  public foodItems: any = [];
+
+  public email!: string;
+}
 </script>

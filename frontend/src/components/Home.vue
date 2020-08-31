@@ -10,7 +10,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import { FoodType } from "../models/enums/FoodType";
 import HomeFoodContainer from "./HomeFoodContainer.vue";
-// import HomeFoodContainer from "./components/HomeFoodContainer.vue";
 
 @Component({
   components: { HomeFoodContainer },
@@ -20,7 +19,6 @@ export default class Home extends Vue {
   breakfastType: FoodType = FoodType.Breakfast;
   lunchType: FoodType = FoodType.Lunch;
   dinnerType: FoodType = FoodType.Dinner;
-  breakfastSrc: string = "../assets/img/breakfast.png";
 }
 </script>
 
