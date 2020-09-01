@@ -1,9 +1,9 @@
 <template>
-  <li>
-    <h5>test</h5>
-    <p>50</p>
-    <img />
-    <span>Testowy description</span>
+  <li class="meal__item">
+    <img class="meal__img" src="../assets/img/breakfast_example.jpg" />
+    <h5 class="meal__title">test</h5>
+    <p class="meal__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <span class="meal__price">30</span>
   </li>
 </template>
 
@@ -15,3 +15,7 @@ import { Component, Vue } from "vue-property-decorator";
 })
 export default class FoodItem extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+@import "../styles/modules/home.scss";
+</style>

@@ -1,5 +1,9 @@
 <template>
-  <ul>
+  <ul class="meal">
+    <FoodItem />
+    <FoodItem />
+    <FoodItem />
+    <FoodItem />
     <FoodItem />
     <FoodItem />
     <FoodItem />
@@ -17,7 +21,9 @@ import FoodItem from "./FoodItem.vue";
 export default class FoodList extends Vue {
   //TODO get
   public foodItems: any = [];
-
-  public email!: string;
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../styles/modules/home.scss";
+</style>

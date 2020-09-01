@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img v-on:click="showDiv" class="home__breakfast-img" />
+  <div class="home-food-container">
+    <img v-on:click="showDiv" class="home__food-img" />
     <FoodList v-if="show" />
   </div>
 </template>
@@ -23,7 +23,7 @@ export default class HomeFoodContainer extends Vue {
 
   mounted() {
     let imgElement = this.$el.getElementsByClassName(
-      "home__brekfast-img"
+      "home__food-img"
     )[0] as HTMLImageElement;
     switch (this.type) {
       case FoodType.Breakfast: {

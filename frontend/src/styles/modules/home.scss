@@ -6,13 +6,44 @@
     align-items: center;
     flex-direction: column;
     margin: 2rem;
-    &__breakfast-img {
+    &__food-img {
         @include home-img;
     }
-    &__dinner-img {
-        @include home-img;
+}
+.home-food-container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.meal {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+    &__description {
+        display: inline;
+        display: flex;
+        text-align: left;
     }
-    &__lunch-img {
-        @include home-img;
+    &__img {
+        width: 8rem;
+        //display: flex;
+        //align-self: flex-start;
+        //position: relative;
+        float: right;
+    }
+    &__item {
+        border: solid 1px $grey;
+        width: 45%;
+        margin: 8px;
+    }
+    &__title {
+        display: inline;
+        text-align: left;
+        font-size: 1.25rem;
     }
 }
