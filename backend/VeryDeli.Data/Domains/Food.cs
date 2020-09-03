@@ -12,6 +12,7 @@ namespace VeryDeli.Data.Domains
         public int Quantity { get; set; }
         [Required]
         public Restaurant Restaurant { get; set; }
+        public List<FoodFoodType> FoodFoodTypes { get; set; } = new List<FoodFoodType>();
         public List<OrderedFood> OrderedFood { get; set; } = new List<OrderedFood>();
     }
 }
