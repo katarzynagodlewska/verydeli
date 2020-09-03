@@ -18,6 +18,8 @@ namespace VeryDeli.Data
         public DbSet<Food> Foods { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<OrderedFood> OrderedFoods { get; set; }
+        public DbSet<FoodType> FoodTypes { get; set; }
+        public DbSet<FoodFoodType> FoodFoodTypes { get; set; }
 
         public VeryDeliDataContext(DbContextOptions options) : base(options)
         {
@@ -66,9 +68,20 @@ namespace VeryDeli.Data
                 .WithMany(o => o.OrderedFood)
                 .HasForeignKey(of => of.OrderId);
 
-            modelBuilder.Entity<OrderedFood>().HasOne(m => m.Food)
+            modelBuilder.Entity<OrderedFood>()
+                .HasOne(m => m.Food)
                 .WithMany(f => f.OrderedFood)
                 .HasForeignKey(of => of.FoodId);
+
+            modelBuilder.Entity<FoodFoodType>()
+                .HasOne(m => m.FoodType)
+                .WithMany(o => o.FoodFoodTypes)
+                .HasForeignKey(ft => ft.FoodTypeId);
+
+            modelBuilder.Entity<FoodFoodType>()
+                .HasOne(m => m.Food)
+                .WithMany(f => f.FoodFoodTypes)
+                .HasForeignKey(ft => ft.FoodId);
         }
     }
 }

@@ -54,6 +54,8 @@
     <Compile Remove="Migrations\20200830135120_UpdateDatabaseDomain.Designer.cs" />
     <Compile Remove="Migrations\20200830135611_UpdateDatabaseDomain.cs" />
     <Compile Remove="Migrations\20200830135611_UpdateDatabaseDomain.Designer.cs" />
+    <Compile Remove="Migrations\20200901201438_AddFoodTypesToFood.cs" />
+    <Compile Remove="Migrations\20200901201438_AddFoodTypesToFood.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
