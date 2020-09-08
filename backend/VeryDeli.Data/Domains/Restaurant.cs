@@ -10,7 +10,6 @@ namespace VeryDeli.Data.Domains
             UserTypeId = Enums.UserType.Restaurant;
         }
 
-        [Required]
         public  Address Address { get; set; }
         public List<Order> Orders { get; set; }
         public string Name { get; set; }
