@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <img class="icon-cart" src="../assets/img/icon-cart.svg" v-if="isLoggedIn" />
+    <img class="icon-cart" src="../assets/img/icon-cart.svg" />
     <div class="cart-box">
       <div class="cart-box__item">
         <span class="cart-box__name">Strawberry Pancakes</span>
@@ -22,12 +22,16 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+const navbarModule = namespace("navbar");
 @Component({
   components: {},
   name: "Navbar",
 })
 export default class Navbar extends Vue {
-  @Prop() public isLoggedIn: Boolean = localStorage.getItem("token") != null;
+  // @navbarModule.Getter
+  // public isLoggedIn!: Boolean;
+  // @Prop() isLoggedIn!: boolean;
 }
 </script>
 
