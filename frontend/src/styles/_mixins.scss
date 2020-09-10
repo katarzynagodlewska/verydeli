@@ -104,3 +104,13 @@
   font-size: 1rem;
   text-align: center;
 }
+
+@mixin navbar-box {
+  display: none;
+  position: absolute;
+  background: $light-grey;
+  padding: 8px;
+  position: absolute;
+  border-radius: 4px;
+  height: auto;
+}
