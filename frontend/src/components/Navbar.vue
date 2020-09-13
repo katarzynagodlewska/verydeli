@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <img class="icon-cart" src="../assets/img/icon-cart.svg" />
+    <img class="icon-cart" src="../assets/img/icon-cart.svg" v-if="isLoggedIn" />
     <div class="cart-box">
       <div class="cart-box__item">
         <span class="cart-box__name">Strawberry Pancakes</span>
@@ -29,9 +29,14 @@ const navbarModule = namespace("navbar");
   name: "Navbar",
 })
 export default class Navbar extends Vue {
-  // @navbarModule.Getter
-  // public isLoggedIn!: Boolean;
-  // @Prop() isLoggedIn!: boolean;
+  @navbarModule.State
+  public isLoggedIn!: Boolean;
+  @navbarModule.Action
+  public checkIfUserWasLogged!: () => Promise<void>;
+  created() {
+    this.checkIfUserWasLogged();
+    console.log("testState");
+  }
 }
 </script>
 

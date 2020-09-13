@@ -2,14 +2,19 @@ import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
 
 @Module({ namespaced: true })
 class NavbarModule extends VuexModule {
-  private _isLoggedIn: boolean = false;
-  public get isLoggedIn(): boolean {
-    return localStorage.getItem("token") != null;
+  public isLoggedIn: boolean = false;
+
+  @Action
+  public checkIfUserWasLogged(): void {
+    console.log("test");
+    let isLogged: boolean = localStorage.getItem("token") != null;
+    console.log(isLogged);
+    this.context.commit("setIsLoggedIn", isLogged);
   }
 
   @Mutation
-  public checkIfUserWasLogged(): void {
-    this._isLoggedIn = this.isLoggedIn;
+  public setIsLoggedIn(isLogged: boolean) {
+    this.isLoggedIn = isLogged;
   }
 }
 

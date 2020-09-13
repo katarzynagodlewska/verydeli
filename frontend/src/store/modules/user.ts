@@ -6,6 +6,7 @@ import {
 } from "@/models/interfaces/User.ts";
 import { userService } from "@/services/userService";
 import router from "@/router/";
+import store from "../store";
 
 @Module({ namespaced: true })
 class UserModule extends VuexModule {
@@ -14,6 +15,7 @@ class UserModule extends VuexModule {
     var response = await userService.login(userData);
     if (response.statusCode == 200) {
       localStorage.setItem("token", response.token);
+      store.dispatch("navbar/checkIfUserWasLogged");
       router.push("/");
     } else {
       //TODO show message
