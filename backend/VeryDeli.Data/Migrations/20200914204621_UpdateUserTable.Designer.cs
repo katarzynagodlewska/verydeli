@@ -11,7 +11,7 @@ using VeryDeli.Data.Enums;
 namespace VeryDeli.Data.Migrations
 {
     [DbContext(typeof(VeryDeliDataContext))]
-    [Migration("20200908193653_UpdateUserTable")]
+    [Migration("20200914204621_UpdateUserTable")]
     partial class UpdateUserTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -446,7 +446,7 @@ namespace VeryDeli.Data.Migrations
 
                     b.HasIndex("UserTypeId");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("User");
 
                     b.HasDiscriminator<int>("UserTypeId").HasValue(0);
                 });

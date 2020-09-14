@@ -444,7 +444,7 @@ namespace VeryDeli.Data.Migrations
 
                     b.HasIndex("UserTypeId");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("User");
 
                     b.HasDiscriminator<int>("UserTypeId").HasValue(0);
                 });

@@ -37,6 +37,7 @@ namespace VeryDeli.Data
                 .HasValue<Courier>(Enums.UserType.Courier)
                 .HasValue<Admin>(Enums.UserType.Admin);
 
+            modelBuilder.Entity<User>().ToTable("User");
             modelBuilder.Entity<IdentityRole<Guid>>().ToTable("Role");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
