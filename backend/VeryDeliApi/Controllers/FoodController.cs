@@ -28,7 +28,7 @@ namespace VeryDeli.Api.Controllers
             return Ok(await _foodQueryHandler.Handle(homeFoodsQuery));
         }
 
-        [HttpGet("search")]
+        [HttpGet("Search")]
         public async Task<IActionResult> Search([FromQuery] SearchFoodQuery searchFoodQuery)
         {
             try

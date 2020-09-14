@@ -24,7 +24,7 @@ namespace VeryDeli.Api.Queries.Handlers
             {
                 FoodModels = await _foodRepository.GetAll()
                     .AsNoTracking()
-                    .Where(f => f.Name.StartsWith(searchFoodQuery.SearchFoodText))
+                    .Where(f => string.IsNullOrWhiteSpace(searchFoodQuery.SearchFoodText) || f.Name.StartsWith(searchFoodQuery.SearchFoodText))
                     .Skip(searchFoodQuery.Skip)
                     .Take(searchFoodQuery.Take == default ? 10 : searchFoodQuery.Take)
                     .Select(f => new FoodModel

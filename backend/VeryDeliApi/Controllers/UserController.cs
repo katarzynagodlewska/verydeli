@@ -20,7 +20,7 @@ namespace VeryDeli.Api.Controllers
             _userQueryHandler = userQueryHandler;
         }
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserCommand registerUserCommand)
         {
             try
@@ -33,7 +33,7 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand loginUserCommand)
         {
             try
