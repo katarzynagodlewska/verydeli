@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using VeryDeli.Api.Models;
 using VeryDeli.Api.Queries.Handlers.Interfaces;
 using VeryDeli.Api.Responses.Home;
 using VeryDeli.Data.Repositories.Abstraction;
@@ -21,7 +22,7 @@ namespace VeryDeli.Api.Queries.Handlers
             //TODO GET by localization or add more
             return new HomeFoodsResponse
             {
-                HomeFoodModels =
+                FoodModels =
                     await _foodRepository
                         .GetAll()
                         .Include(f=>f.Image)
@@ -29,7 +30,7 @@ namespace VeryDeli.Api.Queries.Handlers
                         .Where(f =>
                             f.FoodFoodTypes.Select(fft => fft.FoodTypeId).Contains(homeFoodsQuery.FoodType))
                         .Take(12)
-                        .Select(f => new HomeFoodModel()
+                        .Select(f => new FoodModel()
                         {
                             Id = f.Id,
                             Description = f.Description,

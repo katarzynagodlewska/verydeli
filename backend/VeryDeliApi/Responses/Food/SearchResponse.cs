@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using VeryDeli.Api.Models;
 
-namespace VeryDeli.Api.Responses.Home
+namespace VeryDeli.Api.Responses.Food
 {
-    public class HomeFoodsResponse
+    public class SearchResponse
     {
         public List<FoodModel> FoodModels { get; set; }
     }
