@@ -29,14 +29,6 @@ namespace VeryDeli.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().ToTable("User");
-            modelBuilder.Entity<IdentityRole<Guid>>().ToTable("Role");
-            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
-            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
-            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");
-            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaims");
-            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("UserToken");
-
             modelBuilder.Entity<User>()
                 .HasDiscriminator<Enums.UserType>(nameof(User.UserTypeId))
                 .HasValue<User>(Enums.UserType.User)
@@ -44,6 +36,14 @@ namespace VeryDeli.Data
                 .HasValue<Restaurant>(Enums.UserType.Restaurant)
                 .HasValue<Courier>(Enums.UserType.Courier)
                 .HasValue<Admin>(Enums.UserType.Admin);
+
+            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<IdentityRole<Guid>>().ToTable("Role");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("UserRole");
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("UserClaim");
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogin");
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("UserToken");
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Delivery)
