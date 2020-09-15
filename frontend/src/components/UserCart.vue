@@ -34,7 +34,7 @@
     </ul>
     <p class="cart__total">Total</p>
     <p class="cart__sum">65,90 PLN</p>
-    <router-link>Continue</router-link>
+    <router-link to="/order">Continue</router-link>
   </div>
 </template>
 
