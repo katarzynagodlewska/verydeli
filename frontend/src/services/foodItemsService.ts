@@ -9,7 +9,7 @@ async function getFoodByType(foodType: FoodType): Promise<Array<HomeFood>> {
     method: "GET",
     headers: { "Content-Type": "application/json", credentials: "include" },
   };
-
+  //TODO fetch.then(check response status)
   const response = (await (
     await fetch(`${backendUrl}/Food/Type=${foodType}`, requestOptions)
   ).json()) as Promise<Array<HomeFood>>;

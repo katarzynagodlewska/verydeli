@@ -1,0 +1,36 @@
+@import "../_variables.scss";
+@import "../mixins.scss";
+
+.cart {
+    padding: 1rem 2rem 1rem 4rem;
+    &__title {
+        text-align: center;
+        margin: 1.5rem;
+    }
+}
+
+.cart-item {
+    display: flex;
+    margin-top: 1rem;
+    &__delete {
+        display: block;
+        margin: 2rem 0 0;
+    }
+    &__description {
+        display: inline-block;
+        margin: 0 2rem;
+    }
+    &__img {
+        height: 120px;
+        width: 90px;
+        object-fit: cover;
+    }
+    &__name {
+        display: flex;
+        margin-top: 0;
+    }
+}
+
+.cart-list {
+    list-style-type: none;
+}
