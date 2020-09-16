@@ -7,14 +7,21 @@
         <div class="cart-item__description">
           <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
           <p class="cart-item__price">26</p>
-        </div>
-      </li>
-      <li class="cart-item">
-        <img class="cart-item__img" src="../assets/img/breakfast_example.jpg" />
-        <div class="cart-item__description">
-          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
-          <span class="cart-item__price">26</span>
-          <img class="cart-item__delete" src="../assets/img/icon-delete.svg" />
+          <button class="cart-item__button-delete">
+            <svg
+              class="cart-item__delete-svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 9V19H8V9H16ZM14.5 3H9.5L8.5 4H5V6H19V4H15.5L14.5 3ZM18 7H6V19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7Z"
+                fill="black"
+              />
+            </svg>
+          </button>
         </div>
       </li>
       <li class="cart-item">
@@ -22,6 +29,43 @@
         <div class="cart-item__description">
           <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
           <p class="cart-item__price">26</p>
+          <button class="cart-item__button-delete">
+            <svg
+              class="cart-item__delete-svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 9V19H8V9H16ZM14.5 3H9.5L8.5 4H5V6H19V4H15.5L14.5 3ZM18 7H6V19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7Z"
+                fill="black"
+              />
+            </svg>
+          </button>
+        </div>
+      </li>
+      <li class="cart-item">
+        <img class="cart-item__img" src="../assets/img/breakfast_example.jpg" />
+        <div class="cart-item__description">
+          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
+          <p class="cart-item__price">26</p>
+          <button class="cart-item__button-delete">
+            <svg
+              class="cart-item__delete-svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 9V19H8V9H16ZM14.5 3H9.5L8.5 4H5V6H19V4H15.5L14.5 3ZM18 7H6V19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7Z"
+                fill="black"
+              />
+            </svg>
+          </button>
         </div>
       </li>
       <li class="cart-item">
@@ -34,7 +78,7 @@
     </ul>
     <p class="cart__total">Total</p>
     <p class="cart__sum">65,90 PLN</p>
-    <router-link to="/order">Continue</router-link>
+    <router-link to="/order" class="cart__continue">CONTINUE</router-link>
   </div>
 </template>
 

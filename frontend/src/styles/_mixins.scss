@@ -114,3 +114,11 @@
   border-radius: 4px;
   height: auto;
 }
+
+@mixin cart-text {
+  display: block;
+  text-align: end;
+  margin: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
