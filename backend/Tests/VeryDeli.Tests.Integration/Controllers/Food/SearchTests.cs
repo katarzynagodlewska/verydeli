@@ -28,6 +28,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
                 {
                     // Add TestServer
                     webHost.UseTestServer();
+                    webHost.UseEnvironment("Test");
                     webHost.UseStartup<Startup>();
                 });
 
@@ -38,7 +39,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
             var client = host.GetTestClient();
 
             // Act
-            var response = await client.GetAsync("/Home/Test");
+            var response = await client.GetAsync("/api/food/GetFoodsByFoodType");
 
             // Assert
             var responseString = await response.Content.ReadAsStringAsync();
