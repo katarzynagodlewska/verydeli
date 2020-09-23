@@ -94,10 +94,31 @@
 @mixin home-img {
   max-width: 700px;
   max-height: 300px;
-  margin: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  align-self: center;
+  cursor: pointer;
 }
 
 @mixin link-box {
   font-size: 1rem;
   text-align: center;
+}
+
+@mixin navbar-box {
+  display: none;
+  position: absolute;
+  background: $light-grey;
+  padding: 8px;
+  position: absolute;
+  border-radius: 4px;
+  height: auto;
+}
+
+@mixin cart-text {
+  display: block;
+  text-align: end;
+  margin: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
