@@ -1,0 +1,65 @@
+@import "../_variables.scss";
+@import "../mixins.scss";
+
+.cart {
+    //padding: 1rem 2rem 1rem 4rem;
+    margin: 1rem 3rem 1rem 5rem;
+    &__continue {
+        display: block;
+        text-align: end;
+        text-decoration: none;
+        color: black;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem;
+        &:active {
+            color: $lime;
+        }
+    }
+    &__sum {
+        @include cart-text;
+    }
+    &__title {
+        text-align: center;
+        margin: 1.5rem;
+    }
+    &__total {
+        @include cart-text;
+    }
+}
+
+.cart-item {
+    display: flex;
+    margin-top: 1rem;
+    &__button-delete {
+        padding: 0 2px;
+        height: 28px;
+        outline: none;
+        background: #fff;
+        border: solid 1px;
+        &:active > svg > path {
+            fill: $lime;
+        }
+    }
+    &__delete-svg {
+        display: block;
+        height: 20px;
+    }
+    &__description {
+        display: inline-block;
+        margin: 0 2rem;
+    }
+    &__img {
+        height: 120px;
+        width: 90px;
+        object-fit: cover;
+    }
+    &__name {
+        display: flex;
+        margin-top: 0;
+    }
+}
+
+.cart-list {
+    list-style-type: none;
+}

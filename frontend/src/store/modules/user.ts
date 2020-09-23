@@ -6,13 +6,20 @@ import {
 } from "@/models/interfaces/User.ts";
 import { userService } from "@/services/userService";
 import router from "@/router/";
+import store from "../store";
 
 @Module({ namespaced: true })
 class UserModule extends VuexModule {
   @Action
   public async login(userData: UserLoginModel): Promise<void> {
     var response = await userService.login(userData);
-    this.processUserLogin(response);
+    if (response.statusCode == 200) {
+      localStorage.setItem("token", response.token);
+      store.dispatch("navbar/checkIfUserWasLogged");
+      router.push("/");
+    } else {
+      //TODO show message
+    }
   }
 
   @Action
@@ -21,7 +28,7 @@ class UserModule extends VuexModule {
     this.processUserLogin(response);
   }
 
-  private processUserLogin(userLoginResponse: UserLoginResponseModel) {
+  public processUserLogin(userLoginResponse: UserLoginResponseModel) {
     if (userLoginResponse.statusCode == 200) {
       localStorage.setItem("token", userLoginResponse.token);
       router.push("/");
