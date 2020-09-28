@@ -38,6 +38,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
             // Create an HttpClient which is setup for the test host
             var client = host.GetTestClient();
 
+
             // Act
             var response = await client.GetAsync("/api/food/GetFoodsByFoodType");
 
