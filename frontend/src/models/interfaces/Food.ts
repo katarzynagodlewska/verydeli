@@ -1,12 +1,15 @@
-interface HomeFood extends Food {
-  description: string;
-  image: ImageBitmap;
-}
-
 interface Food {
   title: string;
   price: number;
   id: string;
 }
 
-export { HomeFood, Food };
+interface CartFood extends Food {
+  image?: ImageBitmap;
+}
+
+interface HomeFood extends CartFood {
+  description: string;
+}
+
+export { HomeFood, Food, CartFood };

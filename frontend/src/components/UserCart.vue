@@ -97,14 +97,15 @@
 import { Component, Vue } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Food } from "../models/interfaces/Food";
-const userCart = namespace("userCart");
+//const userCart = namespace("userCart");
+
 @Component({
   components: {},
-  name: "UserCart",
+  // name: "UserCart",
 })
 export default class UserCart extends Vue {
-  @userCart.State
-  public foods!: Array<Food>;
+  // @userCart.State
+  // public foods!: Array<Food>;
 }
 </script>
 
