@@ -1,8 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VeryDeli.Data\VeryDeli.Data.csproj" />
+    <ProjectReference Include="..\VeryDeliApi\VeryDeli.Api.csproj" />
+  </ItemGroup>
 
 </Project>
