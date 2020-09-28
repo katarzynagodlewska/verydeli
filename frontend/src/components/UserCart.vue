@@ -3,9 +3,14 @@
     <h2 class="cart__title">Shopping basket</h2>
     <ul class="cart-list">
       <li class="cart-item">
-        <img class="cart-item__img" src="../assets/img/pancakes_chocolate_blueberries.jpg" />
+        <img
+          class="cart-item__img"
+          src="../assets/img/pancakes_chocolate_blueberries.jpg"
+        />
         <div class="cart-item__description">
-          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
+          <h5 class="cart-item__name">
+            Oatmeal Pancakes with Toffi and Blueberries
+          </h5>
           <p class="cart-item__price">26</p>
           <button class="cart-item__button-delete">
             <svg
@@ -27,7 +32,9 @@
       <li class="cart-item">
         <img class="cart-item__img" src="../assets/img/breakfast_example.jpg" />
         <div class="cart-item__description">
-          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
+          <h5 class="cart-item__name">
+            Oatmeal Pancakes with Toffi and Blueberries
+          </h5>
           <p class="cart-item__price">26</p>
           <button class="cart-item__button-delete">
             <svg
@@ -49,7 +56,9 @@
       <li class="cart-item">
         <img class="cart-item__img" src="../assets/img/breakfast_example.jpg" />
         <div class="cart-item__description">
-          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
+          <h5 class="cart-item__name">
+            Oatmeal Pancakes with Toffi and Blueberries
+          </h5>
           <p class="cart-item__price">26</p>
           <button class="cart-item__button-delete">
             <svg
@@ -71,7 +80,9 @@
       <li class="cart-item">
         <img class="cart-item__img" src="../assets/img/breakfast_example.jpg" />
         <div class="cart-item__description">
-          <h5 class="cart-item__name">Oatmeal Pancakes with Toffi and Blueberries</h5>
+          <h5 class="cart-item__name">
+            Oatmeal Pancakes with Toffi and Blueberries
+          </h5>
           <p class="cart-item__price">26</p>
         </div>
       </li>
@@ -84,11 +95,17 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+import { Food } from "../models/interfaces/Food";
+const userCart = namespace("userCart");
 @Component({
   components: {},
   name: "UserCart",
 })
-export default class UserCart extends Vue {}
+export default class UserCart extends Vue {
+  @userCart.State
+  public foods!: Array<Food>;
+}
 </script>
 
 <style lang="scss">
