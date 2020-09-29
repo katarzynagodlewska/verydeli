@@ -12,7 +12,7 @@
           <span class="cart-box__price">{{ item.price }}</span>
         </div>
       </div>
-      <button class="cart-box__button">See shopping busket</button>
+      <button class="cart-box__button">See shopping basket</button>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
-import { Food } from "@/models/interfaces/Food";
+import { Food } from "../models/interfaces/Food";
 const navbarCart = namespace("navbarCart");
 
 @Component({

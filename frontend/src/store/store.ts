@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import cart from "@/store/modules/cart";
 import user from "@/store/modules/user";
 import navbar from "@/store/modules/navbar";
 import navbarCart from "@/store/modules/navbarCart";
@@ -9,6 +10,7 @@ const store = new Vuex.Store({
     user,
     navbar,
     navbarCart,
+    cart,
   },
 });
 export default store;

@@ -15,7 +15,9 @@ import { Component, Vue } from "vue-property-decorator";
   components: {},
   name: "FoodItem",
 })
-export default class FoodItem extends Vue {}
+export default class FoodItem extends Vue {
+  //PROP HOMefooditem
+}
 </script>
 
 <style lang="scss" scoped>

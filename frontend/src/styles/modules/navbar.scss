@@ -12,8 +12,8 @@
 
 .cart-box {
     @include navbar-box;
-    width: 200px;
-    margin: -0.2rem 2rem 1rem 1rem;
+    max-width: 200px;
+    margin: 50px 2rem 1rem 1rem;
     font-size: 12px;
     line-height: 1.5;
     &:hover {
@@ -45,6 +45,8 @@
 }
 
 .icon-cart {
+    display: flex;
+
     height: 2.25rem;
     cursor: pointer;
     margin: 1rem 1rem 0;
@@ -87,8 +89,10 @@
 .nav {
     display: flex;
     justify-content: flex-end;
+    padding: 0 1.5rem;
 }
 
 .navbarcart-container {
-    min-width: 200px;
+    display: flex;
+    justify-content: center;
 }
