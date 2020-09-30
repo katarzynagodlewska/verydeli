@@ -1,13 +1,6 @@
 <template>
   <nav class="nav">
-    <img class="icon-cart" src="../assets/img/icon-cart.svg" v-if="isLoggedIn" />
-    <div class="cart-box">
-      <div class="cart-box__item">
-        <span class="cart-box__name">Strawberry Pancakes</span>
-        <span class="cart-box__price">26</span>
-      </div>
-      <button class="cart-box__button">See shopping busket</button>
-    </div>
+    <NavbarCart :isLoggedIn="isLoggedIn" />
     <img class="icon-log" src="../assets/img/icon-log.svg" />
     <div class="box-to-log-and-register">
       <p class="link-box-login">
@@ -23,9 +16,10 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
+import NavbarCart from "./NavbarCart.vue";
 const navbarModule = namespace("navbar");
 @Component({
-  components: {},
+  components: { NavbarCart },
   name: "Navbar",
 })
 export default class Navbar extends Vue {

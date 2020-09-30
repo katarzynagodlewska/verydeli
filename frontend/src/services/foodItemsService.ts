@@ -1,4 +1,4 @@
-import { HomeFood } from "@/models/interfaces/HomeFood.ts";
+import { HomeFood } from "@/models/interfaces/Food.ts";
 import { FoodType } from "@/models/enums/FoodType";
 export const foodItemsService = { getFoodByType };
 
