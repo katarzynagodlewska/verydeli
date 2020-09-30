@@ -2,7 +2,7 @@ import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
 import { HomeFood } from "@/models/interfaces/Food.ts";
 
 @Module({ namespaced: true })
-class NavbarCartModule extends VuexModule {
+class FoodList extends VuexModule {
   public HomeFoodItems: Array<HomeFood> = [
     {
       title: "Pancakes with strawberries",
@@ -25,4 +25,4 @@ class NavbarCartModule extends VuexModule {
   ];
 }
 
-export default NavbarCartModule;
+export default FoodList;

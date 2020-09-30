@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <ul class="meal" v-for="item in fooditems" :key="item.id">
-      <FoodItem />
-    </ul>
-  </div>
+  <ul class="meal">
+    <FoodItem v-for="item in HomeFoodItems" :key="item.id" :foodItem="item" />
+  </ul>
 </template>
 
 <script lang="ts">
@@ -11,15 +9,15 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import FoodItem from "./FoodItem.vue";
 import { HomeFood } from "../models/interfaces/Food";
-const navbarCart = namespace("foodList");
+const foodList = namespace("foodList");
 
 @Component({
   components: { FoodItem },
   name: "FoodList",
 })
 export default class FoodList extends Vue {
-  @Prop() public HomeFoodItems!: Array<HomeFood>;
-  //public foodItems: any = [];
+  @foodList.State
+  public HomeFoodItems!: Array<HomeFood>;
 }
 </script>
 
