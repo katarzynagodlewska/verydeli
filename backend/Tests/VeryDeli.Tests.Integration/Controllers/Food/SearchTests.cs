@@ -12,6 +12,7 @@ using Xunit;
 
 namespace VeryDeli.Tests.Integration.Controllers.Food
 {
+    [Collection("Db")]
     public class SearchTests
     {
         public SearchTests()
@@ -33,7 +34,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
                 });
 
             // Create and start up the host
-            var host = await hostBuilder.StartAsync();
+            var host = await hostBuilder.ConfigureWebHost(new Action<IWebHostBuilder>()).StartAsync();
 
             // Create an HttpClient which is setup for the test host
             var client = host.GetTestClient();

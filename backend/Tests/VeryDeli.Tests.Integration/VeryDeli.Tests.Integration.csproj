@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="TestInfrastructure\PageObjects\" />
   </ItemGroup>
 
   <ItemGroup>
