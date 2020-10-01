@@ -1,5 +1,5 @@
 <template>
-  <li class="meal__item">
+  <li class="meal__item" v-on:click="showFoodCard">
     <img class="meal__img" src="../assets/img/breakfast_example.jpg" />
     <h5 class="meal__title">{{ foodItem.title }}</h5>
     <p class="meal__description">
@@ -18,6 +18,7 @@ import { HomeFood } from "../models/interfaces/Food";
 })
 export default class FoodItem extends Vue {
   @Prop() public foodItem!: HomeFood;
+  public showFoodCard(): void {}
 }
 </script>
 
