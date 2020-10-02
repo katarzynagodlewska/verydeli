@@ -2,26 +2,26 @@
   <div v-if="show">
     <button></button>
     <img src="../assets/img/pancakes_chocolate_blueberries.jpg" />
-    <h4></h4>
-    <p></p>
-    <button>-</button>
-    <span></span>
-    <button>+</button>
+    <h4>{{ foodItemCard.title }}</h4>
+    <p>{{ foodItemCard.description }}</p>
+    
     <button>Add to order</button>
-  </div>
+    <p>{{ foodItemCard.price }}</p>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
-const foodItemCard = namespace("foodItemCard");
+import { HomeFood } from "../models/interfaces/Food";
+const foodItemCardModule = namespace("foodItemCard");
 
 @Component({
   components: {},
   name: "FoodItemCard",
 })
 export default class FoodItemCard extends Vue {
-  @foodItemCard.State
+  @Prop() public foodItemCard!: HomeFood;
+  @foodItemCardModule.State
   public show: Boolean = false;
 }
 </script>
