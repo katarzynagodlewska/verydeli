@@ -1,12 +1,17 @@
 <template>
-  <div v-if="show">
-    <button></button>
-    <img src="../assets/img/pancakes_chocolate_blueberries.jpg" />
-    <h4>{{ foodItemCard.title }}</h4>
-    <p>{{ foodItemCard.description }}</p>
+  <div class="item-card" v-if="show">
+    <button class="button-close">
+      <img class="icon-close" src="../assets/img/icon-close.svg" />
+    </button>
+    <img
+      class="item-card__img"
+      src="../assets/img/pancakes_chocolate_blueberries.jpg"
+    />
+    <h4 class="item-card__title">{{ foodItemCard.title }}</h4>
+    <p class="item-card__description">{{ foodItemCard.description }}</p>
     <Counter />
-    <button>Add to order</button>
-    <p>{{ foodItemCard.price }}</p>
+    <button class="item-card__add">Add to order</button>
+    <p class="item-card__price">{{ foodItemCard.price }}</p>
   </div>
 </template>
 

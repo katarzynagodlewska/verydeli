@@ -1,0 +1,28 @@
+@import "../mixins";
+@import "../variables";
+
+.button-close {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+}
+
+.item-card {
+    padding: 8px;
+    &__img {
+        width: 154px;
+        height: 154px;
+        object-fit: cover;
+    }
+    &__title {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+}
