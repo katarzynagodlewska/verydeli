@@ -22,9 +22,10 @@ const foodItemCardModule = namespace("foodItemCard");
   name: "FoodItemCard",
 })
 export default class FoodItemCard extends Vue {
-  @Prop() public foodItemCard!: HomeFood;
   @foodItemCardModule.State
-  public show: Boolean = false;
+  public show!: Boolean;
+  @foodItemCardModule.State
+  public foodItemCard!: HomeFood;
 }
 </script>
 

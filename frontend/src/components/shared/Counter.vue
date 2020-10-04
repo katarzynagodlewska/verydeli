@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button>-</button>
+    <button @click="decrement()">-</button>
     <p>{{ counter }}</p>
-    <button>+</button>
+    <button @click="increment()">+</button>
   </div>
 </template>
 
@@ -18,6 +18,13 @@ const counterModule = namespace("counter");
 export default class Counter extends Vue {
   @counterModule.State
   public counter!: number;
+
+  @counterModule.Action
+  public increment!: () => void;
+
+  @counterModule.Action
+  public decrement!: () => void;
+
   created() {
     console.log(this.counter);
   }
