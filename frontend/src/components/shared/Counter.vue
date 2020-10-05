@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <button @click="decrement()">-</button>
-    <p>{{ counter }}</p>
-    <button @click="increment()">+</button>
+  <div class="counter">
+    <button class="button-decrement" @click="decrement()">-</button>
+    <input
+      class="counter__input"
+      v-model="counter"
+      disabled="disabled"
+      type="number"
+    />
+    <button class="button-increment" @click="increment()">+</button>
   </div>
 </template>
 
@@ -30,3 +35,7 @@ export default class Counter extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "@/styles/modules/foodItemCard.scss";
+</style>

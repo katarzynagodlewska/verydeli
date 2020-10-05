@@ -9,9 +9,11 @@
     />
     <h4 class="item-card__title">{{ foodItemCard.title }}</h4>
     <p class="item-card__description">{{ foodItemCard.description }}</p>
-    <Counter />
-    <button class="item-card__add">Add to order</button>
-    <p class="item-card__price">{{ foodItemCard.price }}</p>
+    <div class="item-card__bottom">
+      <Counter />
+      <button class="item-card__add">Add to order</button>
+      <p class="item-card__price">{{ foodItemCard.price }} PLN</p>
+    </div>
   </div>
 </template>
 

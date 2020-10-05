@@ -3,6 +3,23 @@ import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
 @Module({ namespaced: true })
 class CounterModule extends VuexModule {
   public counter: number = 0;
+  // //   get(){
+  // //     return this.counter;
+  // //   },
+
+  // //   public set value(v : string) {
+  // //     this. = v;
+  // //   }
+
+  // // }
+  // // public
+  // public get counter(): number {
+  //   return this.counter;
+  // }
+
+  // public set counter(v: number) {
+  //   this.counter = v;
+  // }
 
   @Mutation
   public decrementCounter() {
