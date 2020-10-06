@@ -7,6 +7,7 @@ import navbarCart from "@/store/modules/navbarCart";
 import foodList from "@/store/modules/foodList";
 import foodItemCard from "@/store/modules/foodItemCard";
 import counter from "@/store/modules/counter";
+import foodItem from "@/store/modules/foodItem";
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
     foodList,
     foodItemCard,
     counter,
+    foodItem,
   },
 });
 export default store;

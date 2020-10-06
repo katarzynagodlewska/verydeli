@@ -1,5 +1,5 @@
 <template>
-  <li class="meal__item" v-on:click="showFoodCard">
+  <li class="meal__item" v-on:click="showItem()">
     <img class="meal__img" src="../assets/img/breakfast_example.jpg" />
     <h5 class="meal__title">{{ foodItem.title }}</h5>
     <p class="meal__description">
@@ -11,14 +11,19 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { namespace } from "vuex-class";
 import { HomeFood } from "../models/interfaces/Food";
+const foodItemModule = namespace("foodItem");
+
 @Component({
   components: {},
   name: "FoodItem",
 })
 export default class FoodItem extends Vue {
   @Prop() public foodItem!: HomeFood;
-  public showFoodCard(): void {}
+
+  @foodItemModule.Action
+  public showItem!: () => void;
 }
 </script>
 

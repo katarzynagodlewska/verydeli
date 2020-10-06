@@ -1,6 +1,6 @@
 <template>
   <div class="item-card" v-if="show">
-    <button class="button-close">
+    <button class="button-close" @click="closeItem()">
       <img class="icon-close" src="../assets/img/icon-close.svg" />
     </button>
     <img
@@ -31,8 +31,12 @@ const foodItemCardModule = namespace("foodItemCard");
 export default class FoodItemCard extends Vue {
   @foodItemCardModule.State
   public show!: Boolean;
+
   @foodItemCardModule.State
   public foodItemCard!: HomeFood;
+
+  @foodItemCardModule.Action
+  public closeItem!: () => void;
 }
 </script>
 
