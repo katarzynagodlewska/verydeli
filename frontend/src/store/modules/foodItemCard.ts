@@ -5,10 +5,10 @@ import { HomeFood } from "@/models/interfaces/Food.ts";
 class FoodItemCardModule extends VuexModule {
   public show: boolean = false;
   public foodItemCard: HomeFood = {
-    description: "Pancakes with chocolate souce and fresh blueberries.",
-    title: "Pancakes with chocolate and blueberries",
-    price: 22.9,
-    id: "testId",
+    description: "",
+    title: "",
+    price: 0,
+    id: "",
   };
 
   @Mutation
@@ -17,13 +17,14 @@ class FoodItemCardModule extends VuexModule {
   }
 
   @Mutation
-  public showItemCard() {
+  public showItemCard(foodItem: HomeFood) {
     this.show = true;
+    this.foodItemCard = foodItem;
   }
 
   @Action
-  public showItem() {
-    this.context.commit("showItemCard");
+  public showItem(foodItem: HomeFood) {
+    this.context.commit("showItemCard", foodItem);
   }
 
   @Action

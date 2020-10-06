@@ -29,10 +29,6 @@ export default class Counter extends Vue {
 
   @counterModule.Action
   public decrement!: () => void;
-
-  created() {
-    console.log(this.counter);
-  }
 }
 </script>
 

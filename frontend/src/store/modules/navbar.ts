@@ -6,9 +6,7 @@ class NavbarModule extends VuexModule {
 
   @Action
   public checkIfUserWasLogged(): void {
-    console.log("test");
     let isLogged: boolean = localStorage.getItem("token") != null;
-    console.log(isLogged);
     this.context.commit("setIsLoggedIn", isLogged);
   }
 
