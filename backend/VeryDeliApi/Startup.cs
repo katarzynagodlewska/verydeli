@@ -12,8 +12,11 @@ namespace VeryDeli.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            _env = env;
             Configuration = configuration;
         }
 
@@ -25,7 +28,7 @@ namespace VeryDeli.Api
             services.AddCors();
             services.AddControllers();
             services.AddJwtConfiguration(Configuration);
-            services.AddDatabaseConfiguration(Configuration);
+            services.AddDatabaseConfiguration(Configuration, _env);
             services.RegisterComponents();
             services.AddSwaggerConfiguration();
         }
