@@ -40,7 +40,6 @@ export default class FoodItemCard extends Vue {
 }
 </script>
 
-
 <style lang="scss" scoped>
 @import "../styles/modules/foodItemCard.scss";
 </style>
