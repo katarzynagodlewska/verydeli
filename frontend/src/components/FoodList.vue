@@ -9,14 +9,14 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import FoodItem from "./FoodItem.vue";
 import { HomeFood } from "../models/interfaces/Food";
-const foodList = namespace("foodList");
+const foodListModule = namespace("foodList");
 
 @Component({
   components: { FoodItem },
   name: "FoodList",
 })
 export default class FoodList extends Vue {
-  @foodList.State
+  @foodListModule.State
   public HomeFoodItems!: Array<HomeFood>;
 }
 </script>

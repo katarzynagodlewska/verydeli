@@ -5,6 +5,10 @@ import user from "@/store/modules/user";
 import navbar from "@/store/modules/navbar";
 import navbarCart from "@/store/modules/navbarCart";
 import foodList from "@/store/modules/foodList";
+import foodItemCard from "@/store/modules/foodItemCard";
+import counter from "@/store/modules/counter";
+import foodItem from "@/store/modules/foodItem";
+
 Vue.use(Vuex);
 const store = new Vuex.Store({
   modules: {
@@ -13,6 +17,9 @@ const store = new Vuex.Store({
     navbarCart,
     cart,
     foodList,
+    foodItemCard,
+    counter,
+    foodItem,
   },
 });
 export default store;

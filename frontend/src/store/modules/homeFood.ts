@@ -7,3 +7,5 @@ class FoodItemsModule extends VuexModule {
   @Action
   public async getFoodItemsByType(foodType: FoodType) {}
 }
+
+export default FoodItemsModule;

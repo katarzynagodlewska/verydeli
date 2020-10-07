@@ -3,6 +3,7 @@
     <HomeFoodContainer :type="breakfastType" />
     <HomeFoodContainer :type="lunchType" />
     <HomeFoodContainer :type="dinnerType" />
+    <FoodItemCard />
   </section>
 </template>
 
@@ -10,9 +11,10 @@
 import { Component, Vue } from "vue-property-decorator";
 import { FoodType } from "../models/enums/FoodType";
 import HomeFoodContainer from "./HomeFoodContainer.vue";
+import FoodItemCard from "./FoodItemCard.vue";
 
 @Component({
-  components: { HomeFoodContainer },
+  components: { HomeFoodContainer, FoodItemCard },
   name: "Home",
 })
 export default class Home extends Vue {

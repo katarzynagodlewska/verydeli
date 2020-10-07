@@ -2,7 +2,7 @@ import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
 import { HomeFood } from "@/models/interfaces/Food.ts";
 
 @Module({ namespaced: true })
-class FoodList extends VuexModule {
+class FoodListModule extends VuexModule {
   public HomeFoodItems: Array<HomeFood> = [
     {
       title: "Pancakes with strawberries",
@@ -25,4 +25,4 @@ class FoodList extends VuexModule {
   ];
 }
 
-export default FoodList;
+export default FoodListModule;

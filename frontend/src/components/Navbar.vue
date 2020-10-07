@@ -29,7 +29,6 @@ export default class Navbar extends Vue {
   public checkIfUserWasLogged!: () => Promise<void>;
   created() {
     this.checkIfUserWasLogged();
-    console.log("testState");
   }
 }
 </script>

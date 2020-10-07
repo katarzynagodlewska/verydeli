@@ -40,14 +40,14 @@
 import { Component, Vue } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { CartFood } from "../models/interfaces/Food";
-const cart = namespace("cart");
+const cartModule = namespace("cart");
 
 @Component({
   components: {},
   name: "userCart",
 })
 export default class UserCart extends Vue {
-  @cart.State
+  @cartModule.State
   public foods!: Array<CartFood>;
 }
 </script>
