@@ -1,5 +1,6 @@
 <template>
   <nav class="nav">
+    <Search />
     <NavbarCart :isLoggedIn="isLoggedIn" />
     <img class="icon-log" src="../assets/img/icon-log.svg" />
     <div class="box-to-log-and-register">
@@ -17,9 +18,10 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import NavbarCart from "./NavbarCart.vue";
+import Search from "./Search.vue";
 const navbarModule = namespace("navbar");
 @Component({
-  components: { NavbarCart },
+  components: { NavbarCart, Search },
   name: "Navbar",
 })
 export default class Navbar extends Vue {

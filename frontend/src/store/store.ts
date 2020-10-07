@@ -8,6 +8,7 @@ import foodList from "@/store/modules/foodList";
 import foodItemCard from "@/store/modules/foodItemCard";
 import counter from "@/store/modules/counter";
 import foodItem from "@/store/modules/foodItem";
+import searchItemList from "@/store/modules/searchItemList";
 
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -20,6 +21,7 @@ const store = new Vuex.Store({
     foodItemCard,
     counter,
     foodItem,
+    searchItemList,
   },
 });
 export default store;

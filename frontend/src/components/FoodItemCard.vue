@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import Counter from "./shared/Counter.vue";
 import { namespace } from "vuex-class";
 import { HomeFood } from "../models/interfaces/Food";
