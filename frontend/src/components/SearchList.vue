@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="search-list">
     <SearchItem v-for="item in SearchItems" :key="item.id" :searchItem="item" />
   </ul>
 </template>
@@ -19,13 +19,9 @@ const searchItemListModule = namespace("searchItemList");
 export default class SearchList extends Vue {
   @searchItemListModule.State
   public SearchItems!: Array<Food>;
-
-  created() {
-    console.log(this.SearchItems);
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../sty;es/modules/search.scss";
+@import "../styles/modules/search.scss";
 </style>

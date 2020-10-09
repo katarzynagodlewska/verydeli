@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <input />
-    <button><img src="../assets/img/icon-search.svg" /></button>
+  <section class="search">
+    <input type="search" class="search__input" placeholder="search" />
     <SearchList v-if="show" />
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -18,3 +17,8 @@ export default class Search extends Vue {
   public show: Boolean = true;
 }
 </script>
+
+
+<style lang="scss" scoped>
+@import "../styles/modules/search.scss";
+</style>
