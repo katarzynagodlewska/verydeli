@@ -16,52 +16,31 @@ namespace VeryDeli.Tests.Integration.TestInfrastructure.Fixtures.Base
     {
         private readonly TestServer _server;
 
-            public HttpClient Client { get; }
+        public HttpClient Client { get; }
 
-            public BaseTestFixture()
-            {
-            //var hostBuilder = new HostBuilder()
-            //    .ConfigureAppConfiguration((context, builder) =>
-            //    {
-            //        builder.AddJsonFile("appsettingstest.json");
-            //    })
-            //    .ConfigureWebHost(webHost =>
-            //    {
-            //        // Add TestServer
-            //        webHost.UseTestServer();
-            //        webHost.UseEnvironment("Test");
-            //        webHost.UseStartup<Api.Startup>();
-            //        webHost.ConfigureTestServices(services =>
-            //        {
-            //            services.Configure<JwtOptions>(opts =>
-            //            {
-            //                opts.Secret = "TestSecret";
-            //            });
-            //        });
-            //    });
-
+        public BaseTestFixture()
+        {
             var builder = new WebHostBuilder()
-              .UseStartup<Api.Startup>()
-              .ConfigureAppConfiguration((context, config) =>
-              {
-                  config.SetBasePath(Path.Combine(
-                      Directory.GetCurrentDirectory(),
-                      "..\\..\\..\\..\\AspNetCoreTodo"));
+          .UseStartup<Api.Startup>()
+          .ConfigureAppConfiguration((context, config) =>
+          {
+              config.SetBasePath(Path.Combine(
+                  Directory.GetCurrentDirectory(),
+                  "..\\..\\..\\..\\AspNetCoreTodo"));
 
-                  config.AddJsonFile("appsettingstest.json");
-              });
+              config.AddJsonFile("appsettingstest.json");
+          });
 
             _server = new TestServer(builder);
 
-                Client = _server.CreateClient();
-                Client.BaseAddress = new Uri("http://localhost:8888");
-            }
+            Client = _server.CreateClient();
+            Client.BaseAddress = new Uri("http://localhost:8888");
+        }
 
-            public void Dispose()
-            {
-                Client.Dispose();
-                _server.Dispose();
-            }
+        public void Dispose()
+        {
+            Client.Dispose();
+            _server.Dispose();
         }
     }
 }
