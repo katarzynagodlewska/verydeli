@@ -32,7 +32,6 @@ export default class Search extends Vue {
 }
 </script>
 
-
 <style lang="scss" scoped>
 @import "../styles/modules/search.scss";
 </style>
