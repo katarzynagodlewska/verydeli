@@ -44,7 +44,7 @@ const cartModule = namespace("cart");
 
 @Component({
   components: {},
-  name: "userCart",
+  name: "UserCart",
 })
 export default class UserCart extends Vue {
   @cartModule.State
