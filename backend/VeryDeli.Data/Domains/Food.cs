@@ -11,6 +11,7 @@ namespace VeryDeli.Data.Domains
         public string Description { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
+        public int PreparingTime { get; set; }
         [Required]
         public Restaurant Restaurant { get; set; }
         public Image Image { get; set; }
