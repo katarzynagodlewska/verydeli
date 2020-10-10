@@ -94,7 +94,6 @@ namespace VeryDeli.Api.Controllers
                     if (!foodsStoredInDatabase.Any(f => f.FoodFoodTypes.Select(ff => ff.FoodTypeId).Contains(item)))
                     {
                         Image foodImage = null;
-                        var cos = $"{item}_image.jpg".ToLower();
                         var imageFilePath = imagesFilePathsInProject.FirstOrDefault(i => i.EndsWith($"{item}_image.jpg".ToLower()));
                         if (!string.IsNullOrWhiteSpace(imageFilePath))
                         {
@@ -126,7 +125,8 @@ namespace VeryDeli.Api.Controllers
                             Name = $"{item} title",
                             Price = 30,
                             Quantity = 1,
-                            Image = foodImage
+                            Image = foodImage,
+                            PreparingTime = 30
                         });
                     }
                 }

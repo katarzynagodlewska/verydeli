@@ -3,9 +3,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VeryDeli.Api.Commands;
 using VeryDeli.Api.Commands.Handlers.Interfaces;
+using VeryDeli.Api.Extensions;
+using VeryDeli.Api.Helpers.Attributes;
 using VeryDeli.Api.Queries;
 using VeryDeli.Api.Queries.Handlers;
 using VeryDeli.Api.Queries.Handlers.Interfaces;
+using VeryDeli.Data.Domains;
 
 namespace VeryDeli.Api.Controllers
 {
@@ -43,7 +46,7 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetFood([FromQuery] Guid id)
         {
             try
@@ -56,12 +59,15 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpPost("")]
+        [HttpPost("create")]
+        [Authorize]
         public async Task<IActionResult> CreateFood([FromBody] FoodCommand foodCommand)
         {
             try
             {
-                return Ok(await _foodCommandHandler.Handle(foodCommand));
+                var restaurantUser = HttpContext.GetRestaurantUser();
+
+                return Ok(await _foodCommandHandler.Handle(restaurantUser, foodCommand));
             }
             catch (Exception e)
             {
@@ -69,7 +75,7 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id:Guid}")]
         public async Task<IActionResult> UpdateFood([FromQuery] Guid id, [FromBody] FoodCommand foodCommand)
         {
             try
@@ -82,7 +88,7 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> DeleteFood([FromQuery] Guid id)
         {
             try

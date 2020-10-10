@@ -16,10 +16,12 @@ namespace VeryDeli.Data.Repositories
             _table = Context.Set<T>();
         }
 
-        public async Task Add(T entity)
+        public async Task<T> Add(T entity)
         {
             await _table.AddAsync(entity);
             await Context.SaveChangesAsync();
+
+            return entity;
         }
 
         public IQueryable<T> GetAll()
