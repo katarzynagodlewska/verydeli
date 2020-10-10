@@ -1,15 +1,29 @@
 import { VuexModule, Module, Mutation, Action } from "vuex-module-decorators";
+import store from "../store";
 import { Food } from "@/models/interfaces/Food.ts";
+import { searchService } from "@/services/searchService";
 
 @Module({ namespaced: true })
 class SearchItemListModule extends VuexModule {
-  public SearchItems: Array<Food> = [
-    { title: "Pancakes with strawberries", price: 26, id: "111" },
-    { title: "Pancakes with strawberries", price: 29, id: "112" },
-    { title: "Pancakes with strawberries", price: 17, id: "113" },
-    { title: "English breakfast", price: 25, id: "114" },
-    { title: "Pizza pepperoni", price: 19, id: "115" },
-  ];
+  public SearchItems?: Array<Food>;
+
+  @Action
+  public async getSearchItems(searchText: string): Promise<void> {
+    if (searchText == "") {
+      store.dispatch("search/changeShowListVisible", false);
+      this.context.commit("setSearchItems", []);
+      return;
+    }
+
+    let searchItems = await searchService.getItemsForSearch(searchText);
+    this.context.commit("setSearchItems", searchItems);
+    store.dispatch("search/changeShowListVisible", true)
+  }
+
+  @Mutation
+  public setSearchItems(foods: Array<Food>) {
+    this.SearchItems = foods;
+  }
 }
 
 export default SearchItemListModule;
