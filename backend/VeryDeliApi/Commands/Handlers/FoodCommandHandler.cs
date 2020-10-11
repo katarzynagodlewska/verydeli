@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using VeryDeli.Api.Commands.Handlers.Interfaces;
 using VeryDeli.Api.Responses.Food;
 using VeryDeli.Data.Domains;
@@ -11,38 +11,52 @@ namespace VeryDeli.Api.Commands.Handlers
     public class FoodCommandHandler : IFoodCommandHandler
     {
         private readonly IFoodRepository _foodRepository;
+        private readonly IFoodTypeRepository _foodTypeRepository;
 
-        public FoodCommandHandler(IFoodRepository foodRepository)
+        public FoodCommandHandler(IFoodRepository foodRepository, IFoodTypeRepository foodTypeRepository)
         {
             _foodRepository = foodRepository;
+            _foodTypeRepository = foodTypeRepository;
         }
 
         public async Task<FoodDetailsResponse> Handle(Restaurant restaurantUser, FoodCommand foodCommand)
         {
+            var foodTypesRelatesToCommand = _foodTypeRepository
+                .GetAll()
+                .Where(ft => foodCommand.FoodTypes.Contains(ft.Id.ToString()))
+                .ToList();
+
             var food = new Food
             {
-                Name = null,
-                Description = null,
-                Price = 0,
-                Quantity = 0,
-                PreparingTime = 0,
+                Name = foodCommand.Title,
+                Description = foodCommand.Description,
+                Price = foodCommand.Price,
+                PreparingTime = foodCommand.PreparingTime,
                 Restaurant = restaurantUser, //context
-                Image = null,
-                FoodFoodTypes = null,
+                Image = new Image
+                {
+                    FileName = "testName",
+                    Data = foodCommand.Image,
+                    Length = foodCommand.Image.Length,
+                    ContentType = "image/jpeg",
+                },
+                FoodFoodTypes = foodTypesRelatesToCommand.Select(ft => new FoodFoodType()
+                {
+                    FoodType = ft,
+                    FoodTypeId = ft.Id
+                }).ToList()
             };
 
             food = await _foodRepository.Add(food);
 
             return new FoodDetailsResponse
             {
-                Id = default,
-                Title = null,
-                Price = 0,
-                Description = null,
-                PreparingTime = 0,
-                Image = new byte[]
-                {
-                }
+                Id = food.Id,
+                Title = food.Name,
+                Price = food.Price,
+                Description = food.Description,
+                PreparingTime = food.PreparingTime,
+                Image = food.Image.Data
             };
         }
 
