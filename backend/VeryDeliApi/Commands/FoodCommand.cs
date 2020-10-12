@@ -1,4 +1,6 @@
-﻿namespace VeryDeli.Api.Commands
+﻿using System.Collections.Generic;
+
+namespace VeryDeli.Api.Commands
 {
     public class FoodCommand
     {
@@ -6,7 +8,7 @@
         public decimal Price { get; set; }
         public string Description { get; set; }
         public int PreparingTime { get; set; }
-        public byte[] Image { get; set; }
-        public string FoodTypes { get; set; }
+        public List<byte> Image { get; set; }
+        public List<string> FoodTypes { get; set; }
     }
 }

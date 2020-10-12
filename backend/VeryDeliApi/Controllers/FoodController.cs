@@ -8,7 +8,6 @@ using VeryDeli.Api.Helpers.Attributes;
 using VeryDeli.Api.Queries;
 using VeryDeli.Api.Queries.Handlers;
 using VeryDeli.Api.Queries.Handlers.Interfaces;
-using VeryDeli.Data.Domains;
 
 namespace VeryDeli.Api.Controllers
 {
@@ -27,7 +26,7 @@ namespace VeryDeli.Api.Controllers
             _foodCommandHandler = foodCommandHandler;
         }
 
-        [HttpGet]
+        [HttpGet("GetByFoodType")]
         public async Task<IActionResult> GetFoodsByFoodType([FromQuery] HomeFoodsQuery homeFoodsQuery)
         {
             return Ok(await _foodQueryHandler.Handle(homeFoodsQuery));
@@ -46,8 +45,8 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpGet("{id:Guid}")]
-        public async Task<IActionResult> GetFood([FromQuery] Guid id)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetFood(Guid id)
         {
             try
             {
@@ -59,7 +58,7 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpPost("create")]
+        [HttpPost("Create")]
         [Authorize]
         public async Task<IActionResult> CreateFood([FromBody] FoodCommand foodCommand)
         {
@@ -75,8 +74,8 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpPut("{id:Guid}")]
-        public async Task<IActionResult> UpdateFood([FromQuery] Guid id, [FromBody] FoodCommand foodCommand)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateFood(Guid id, [FromBody] FoodCommand foodCommand)
         {
             try
             {
@@ -88,8 +87,8 @@ namespace VeryDeli.Api.Controllers
             }
         }
 
-        [HttpDelete("{id:Guid}")]
-        public async Task<IActionResult> DeleteFood([FromQuery] Guid id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFood(Guid id)
         {
             try
             {

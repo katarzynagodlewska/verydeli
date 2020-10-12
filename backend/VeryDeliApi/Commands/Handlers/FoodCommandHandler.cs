@@ -23,6 +23,7 @@ namespace VeryDeli.Api.Commands.Handlers
         {
             var foodTypesRelatesToCommand = _foodTypeRepository
                 .GetAll()
+                .ToList()
                 .Where(ft => foodCommand.FoodTypes.Contains(ft.Id.ToString()))
                 .ToList();
 
@@ -32,12 +33,12 @@ namespace VeryDeli.Api.Commands.Handlers
                 Description = foodCommand.Description,
                 Price = foodCommand.Price,
                 PreparingTime = foodCommand.PreparingTime,
-                Restaurant = restaurantUser, //context
+                Restaurant = restaurantUser,
                 Image = new Image
                 {
                     FileName = "testName",
-                    Data = foodCommand.Image,
-                    Length = foodCommand.Image.Length,
+                    Data = foodCommand.Image.ToArray(),
+                    Length = foodCommand.Image.Count(),
                     ContentType = "image/jpeg",
                 },
                 FoodFoodTypes = foodTypesRelatesToCommand.Select(ft => new FoodFoodType()
