@@ -63,12 +63,32 @@ namespace VeryDeli.Api.Commands.Handlers
 
         public async Task<FoodDetailsResponse> Handle(Guid id, FoodCommand foodCommand)
         {
-            throw new NotImplementedException();
+            var food = await _foodRepository.GetById(id);
+
+            food.Name = foodCommand.Title;
+            food.PreparingTime = foodCommand.PreparingTime;
+            food.Price = foodCommand.Price;
+            food.Image.Data = foodCommand.Image.ToArray();
+
+            var foodTypesRelatesToCommand = _foodTypeRepository
+                .GetAll()
+                .ToList()
+                .Where(ft => foodCommand.FoodTypes.Contains(ft.Id.ToString()))
+                .ToList();
+
+            food.FoodFoodTypes = foodTypesRelatesToCommand;
+
+            await _foodRepository.Update(food);
+
+            return new FoodDetailsResponse();
         }
 
         public async Task<DeleteFoodResponse> Handle(Guid id)
         {
-            throw new NotImplementedException();
+            //or set flag isdeleted = true
+            await _foodRepository.RemoveById(id);
+
+            return new DeleteFoodResponse();
         }
     }
 }
