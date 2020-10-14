@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VeryDeli.Api.Commands.Handlers.Interfaces;
@@ -12,11 +13,13 @@ namespace VeryDeli.Api.Commands.Handlers
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IFoodTypeRepository _foodTypeRepository;
+        private readonly IFoodFoodTypeRepository _foodFoodTypeRepository;
 
-        public FoodCommandHandler(IFoodRepository foodRepository, IFoodTypeRepository foodTypeRepository)
+        public FoodCommandHandler(IFoodRepository foodRepository, IFoodTypeRepository foodTypeRepository, IFoodFoodTypeRepository foodFoodTypeRepository)
         {
             _foodRepository = foodRepository;
             _foodTypeRepository = foodTypeRepository;
+            _foodFoodTypeRepository = foodFoodTypeRepository;
         }
 
         public async Task<FoodDetailsResponse> Handle(Restaurant restaurantUser, FoodCommand foodCommand)
@@ -69,12 +72,15 @@ namespace VeryDeli.Api.Commands.Handlers
             food.PreparingTime = foodCommand.PreparingTime;
             food.Price = foodCommand.Price;
             food.Image.Data = foodCommand.Image.ToArray();
+            food.Description = foodCommand.Description;
 
             var foodTypesRelatesToCommand = _foodTypeRepository
                 .GetAll()
                 .ToList()
                 .Where(ft => foodCommand.FoodTypes.Contains(ft.Id.ToString()))
                 .ToList();
+
+            await DeleteFoodTypesNotRelatedToUpdatingCommand(food.Id, foodTypesRelatesToCommand);
 
             food.FoodFoodTypes = foodTypesRelatesToCommand.Select(ft => new FoodFoodType
             {
@@ -83,7 +89,26 @@ namespace VeryDeli.Api.Commands.Handlers
 
             await _foodRepository.Update(food);
 
-            return new FoodDetailsResponse();
+            return new FoodDetailsResponse
+            {
+                Id = food.Id,
+                Title = food.Name,
+                Price = food.Price,
+                Description = food.Description,
+                PreparingTime = food.PreparingTime,
+                Image = food.Image.Data
+            };
+        }
+
+        private async Task DeleteFoodTypesNotRelatedToUpdatingCommand(Guid foodId, List<FoodType> foodTypesRelatesToCommand)
+        {
+            var foodsTypesRelatedToFood = _foodFoodTypeRepository
+                .GetAll()
+                .Where(ff => ff.FoodId == foodId)
+                .ToList();
+
+            foreach (var item in foodsTypesRelatedToFood.Where(ff => !foodTypesRelatesToCommand.Contains(ff.FoodType)))
+                await _foodFoodTypeRepository.Remove(item);
         }
 
         public async Task<DeleteFoodResponse> Handle(Guid id)
@@ -91,7 +116,7 @@ namespace VeryDeli.Api.Commands.Handlers
             //TODO or set isdeleted flag. It could be stored as historical data?
             await _foodRepository.RemoveById(id);
 
-            return new DeleteFoodResponse();
+            return new DeleteFoodResponse() { ResponseMessage = "Succcessfully deleted food item" };
         }
     }
 }

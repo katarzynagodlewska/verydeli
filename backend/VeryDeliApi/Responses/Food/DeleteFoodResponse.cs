@@ -2,5 +2,6 @@
 {
     public class DeleteFoodResponse
     {
+        public string ResponseMessage { get; set; }
     }
 }
