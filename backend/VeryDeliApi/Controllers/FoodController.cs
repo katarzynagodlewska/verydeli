@@ -75,6 +75,7 @@ namespace VeryDeli.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> UpdateFood(Guid id, [FromBody] FoodCommand foodCommand)
         {
             try
@@ -88,6 +89,7 @@ namespace VeryDeli.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteFood(Guid id)
         {
             try
