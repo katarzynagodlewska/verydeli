@@ -76,7 +76,10 @@ namespace VeryDeli.Api.Commands.Handlers
                 .Where(ft => foodCommand.FoodTypes.Contains(ft.Id.ToString()))
                 .ToList();
 
-            food.FoodFoodTypes = foodTypesRelatesToCommand;
+            food.FoodFoodTypes = foodTypesRelatesToCommand.Select(ft => new FoodFoodType
+            {
+                FoodTypeId = ft.Id
+            }).ToList();
 
             await _foodRepository.Update(food);
 
@@ -85,7 +88,7 @@ namespace VeryDeli.Api.Commands.Handlers
 
         public async Task<DeleteFoodResponse> Handle(Guid id)
         {
-            //or set flag isdeleted = true
+            //TODO or set isdeleted flag. It could be stored as historical data?
             await _foodRepository.RemoveById(id);
 
             return new DeleteFoodResponse();
