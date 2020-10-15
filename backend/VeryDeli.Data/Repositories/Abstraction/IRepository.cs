@@ -6,7 +6,7 @@ namespace VeryDeli.Data.Repositories.Abstraction
     public interface IRepository<T, TK> where T : class
     {
         IQueryable<T> GetAll();
-        Task Add(T entity);
+        Task<T> Add(T entity);
         Task Update(T entity);
         Task Remove(T entity);
         Task RemoveById(TK id);
