@@ -6,7 +6,6 @@ using VeryDeli.Api.Commands.Handlers.Interfaces;
 using VeryDeli.Api.Extensions;
 using VeryDeli.Api.Helpers.Attributes;
 using VeryDeli.Api.Queries;
-using VeryDeli.Api.Queries.Handlers;
 using VeryDeli.Api.Queries.Handlers.Interfaces;
 
 namespace VeryDeli.Api.Controllers
@@ -38,6 +37,19 @@ namespace VeryDeli.Api.Controllers
             try
             {
                 return Ok(await _searchFoodsQueryHandler.Handle(searchFoodQuery));
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("GetFoodListForRestaurant")]
+        public async Task<IActionResult> GetFoodListForRestaurant(Guid restaurantId)
+        {
+            try
+            {
+                return Ok(await _foodQueryHandler.Handle(new SearchRestaurantQuery() { RestaurantId = restaurantId }));
             }
             catch (Exception e)
             {

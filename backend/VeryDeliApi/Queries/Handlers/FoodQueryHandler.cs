@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
@@ -58,6 +59,23 @@ namespace VeryDeli.Api.Queries.Handlers
                 PreparingTime = food.PreparingTime,
                 Image = food.Image.Data
             };
+        }
+
+        public async Task<List<FoodListItemResponse>> Handle(SearchRestaurantQuery searchRestaurantQuery)
+        {
+            return await _foodRepository
+                .GetAll()
+                .Include(f => f.Restaurant)
+                .Where(f => f.Restaurant.Id == searchRestaurantQuery.RestaurantId)
+                .Select(f => new FoodListItemResponse()
+                {
+                    Id = f.Id,
+                    Title = f.Name,
+                    Price = f.Price,
+                    Description = f.Description,
+                    PreparingTime = f.PreparingTime,
+                })
+                .ToListAsync();
         }
     }
 }
