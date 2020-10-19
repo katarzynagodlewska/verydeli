@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using VeryDeli.Api;
 using VeryDeli.Api.Options;
+using VeryDeli.Data;
+using VeryDeli.Tests.Integration.TestInfrastructure;
 using Xunit;
 
 namespace VeryDeli.Tests.Integration.Controllers.Food
@@ -35,7 +39,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
                 .ConfigureWebHost(webHost =>
                 {
                     // Add TestServer
-                    webHost.UseTestServer(); 
+                    webHost.UseTestServer();
                     webHost.UseEnvironment("Test");
                     webHost.UseStartup<Startup>();
                     webHost.ConfigureTestServices(services =>
@@ -44,6 +48,33 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
                         {
                             opts.Secret = "TestSecret";
                         });
+
+                        //var serviceProvider = new ServiceCollection()
+                        //    .AddEntityFrameworkInMemoryDatabase()
+                        //    .BuildServiceProvider();
+
+                        //services.AddDbContext<VeryDeliDataContext>(options =>
+                        //{
+                        //  //  options.UseInMemoryDatabase("IntegrationTests");
+                        //    options.UseInternalServiceProvider(serviceProvider);
+                        //});
+
+                        //// BuildDetails the service provider.
+                        //var sp = services.BuildServiceProvider();
+
+                        //// Create a scope to obtain a reference to the database contexts
+                        //using var scope = sp.CreateScope();
+                        //var scopedServices = scope.ServiceProvider;
+                        //var appDb = scopedServices.GetRequiredService<VeryDeliDataContext>();
+
+                        ////var logger = scopedServices.GetRequiredService<ILogger<TestHost>>();
+
+                        //// Ensure the database is created.
+                        //appDb.Database.EnsureCreated();
+
+
+                        //seeed data
+
                     });
                 });
 
@@ -57,6 +88,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
             // Act
 
             var dataSeed = await client.GetAsync("/api/data/Seed");
+
             var response = await client.GetAsync("/api/food/GetFoodsByFoodType");
 
             // Assert

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VeryDeli.Api.Services.Abstraction;
+using VeryDeli.Data;
 using VeryDeli.Data.Domains;
 using VeryDeli.Data.Repositories.Abstraction;
 using FoodType = VeryDeli.Data.Enums.FoodType;
@@ -22,9 +23,10 @@ namespace VeryDeli.Api.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IUserTypeRepository _userTypeRepository;
         private readonly IRestaurantRepository _restaurantRepository;
+        private readonly VeryDeliDataContext _dbContext;
 
         public DataController(IFoodRepository foodRepository, IFoodTypeRepository foodTypeRepository, IUserService userService, IUserRepository userRepository, IUserTypeRepository userTypeRepository,
-            IRestaurantRepository restaurantRepository)
+            IRestaurantRepository restaurantRepository, VeryDeliDataContext dbContext)
         {
             _foodRepository = foodRepository;
             _foodTypeRepository = foodTypeRepository;
@@ -32,7 +34,9 @@ namespace VeryDeli.Api.Controllers
             _userRepository = userRepository;
             _userTypeRepository = userTypeRepository;
             _restaurantRepository = restaurantRepository;
+            _dbContext = dbContext;
         }
+
         [HttpGet("Seed")]
         public async Task<IActionResult> Seed()
         {
@@ -80,11 +84,18 @@ namespace VeryDeli.Api.Controllers
                     }
                 }
 
+                var users = await _userRepository.GetAll().ToListAsync();
                 var foodsStoredInDatabase = await _foodRepository.GetAll().ToListAsync();
-                var restaurantUser = await _restaurantRepository.GetAll().FirstOrDefaultAsync();
+                var rest = await _userRepository.GetAll().Where(u => u.UserTypeId == UserType.Restaurant)
+                    .FirstOrDefaultAsync();
+                var restaurantUser = await _userRepository.GetAll().Where(u => u.UserTypeId == UserType.Restaurant)
+                    .FirstOrDefaultAsync() as Restaurant;
+                var restaurantUsers = _restaurantRepository.GetAll().ToList();
 
+                var restss = _dbContext.Restaurants.ToList();
                 if (restaurantUser == null)
                     throw new Exception($"Not found restaurant user");
+
 
                 foreach (var item in Enum.GetValues(typeof(FoodType)).Cast<FoodType>())
                 {
