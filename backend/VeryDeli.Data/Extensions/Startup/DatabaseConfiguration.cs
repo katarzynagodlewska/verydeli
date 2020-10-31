@@ -16,14 +16,9 @@ namespace VeryDeli.Data.Extensions.Startup
                 .AddDbContext<VeryDeliDataContext>(options =>
             {
                 if (env.EnvironmentName == "Test")
-                {
                     options.UseInMemoryDatabase("TestDb");
-                }
                 else
-                {
-                    options.UseSqlServer(
-                        configuration.GetConnectionString("ConnectionString"));
-                }
+                    options.UseSqlServer(configuration.GetConnectionString("ConnectionString"));
             });
 
             services.AddIdentity<User, IdentityRole<Guid>>(options =>

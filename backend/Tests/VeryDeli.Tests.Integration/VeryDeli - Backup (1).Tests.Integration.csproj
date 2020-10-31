@@ -30,6 +30,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\VeryDeliApi\VeryDeli.Api.csproj" />
   </ItemGroup>
 

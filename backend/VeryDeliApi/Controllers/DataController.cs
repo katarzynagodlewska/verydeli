@@ -23,10 +23,9 @@ namespace VeryDeli.Api.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IUserTypeRepository _userTypeRepository;
         private readonly IRestaurantRepository _restaurantRepository;
-        private readonly VeryDeliDataContext _dbContext;
 
         public DataController(IFoodRepository foodRepository, IFoodTypeRepository foodTypeRepository, IUserService userService, IUserRepository userRepository, IUserTypeRepository userTypeRepository,
-            IRestaurantRepository restaurantRepository, VeryDeliDataContext dbContext)
+            IRestaurantRepository restaurantRepository)
         {
             _foodRepository = foodRepository;
             _foodTypeRepository = foodTypeRepository;
@@ -34,7 +33,6 @@ namespace VeryDeli.Api.Controllers
             _userRepository = userRepository;
             _userTypeRepository = userTypeRepository;
             _restaurantRepository = restaurantRepository;
-            _dbContext = dbContext;
         }
 
         [HttpGet("Seed")]
@@ -68,34 +66,67 @@ namespace VeryDeli.Api.Controllers
                     }
                 }
 
-
                 var userStoredInDatabase = await _userRepository.GetAll().ToListAsync();
                 var password = "Test123!";
                 foreach (var item in Enum.GetValues(typeof(UserType)).Cast<UserType>())
                 {
                     if (userStoredInDatabase.All(u => u.UserTypeId != item))
                     {
-                        await _userService.CreateAsync(new User()
+                        User user = null;
+                        switch (item)
                         {
-                            Email = $"{item}@e.com",
-                            UserName = $"{item}@e.com",
-                            UserTypeId = item
-                        }, password);
+                            case UserType.User:
+                                user = new User()
+                                {
+                                    Email = $"{item}@e.com",
+                                    UserName = $"{item}@e.com",
+                                    UserTypeId = item
+                                };
+                                break;
+                            case UserType.Customer:
+                                user = new Customer()
+                                {
+                                    Email = $"{item}@e.com",
+                                    UserName = $"{item}@e.com",
+                                    UserTypeId = item
+                                };
+                                break;
+                            case UserType.Restaurant:
+                                user = new Restaurant()
+                                {
+                                    Email = $"{item}@e.com",
+                                    UserName = $"{item}@e.com",
+                                    Name = $"{item}_name"
+                                };
+                                break;
+                            case UserType.Courier:
+                                user = new Courier()
+                                {
+                                    Email = $"{item}@e.com",
+                                    UserName = $"{item}@e.com",
+                                    UserTypeId = item
+                                };
+                                break;
+                            case UserType.Admin:
+                                user = new Admin()
+                                {
+                                    Email = $"{item}@e.com",
+                                    UserName = $"{item}@e.com",
+                                    UserTypeId = item
+                                };
+                                break;
+                        }
+
+                        if (user != null)
+                            await _userService.CreateAsync(user, password);
                     }
                 }
 
-                var users = await _userRepository.GetAll().ToListAsync();
                 var foodsStoredInDatabase = await _foodRepository.GetAll().ToListAsync();
-                var rest = await _userRepository.GetAll().Where(u => u.UserTypeId == UserType.Restaurant)
-                    .FirstOrDefaultAsync();
-                var restaurantUser = await _userRepository.GetAll().Where(u => u.UserTypeId == UserType.Restaurant)
-                    .FirstOrDefaultAsync() as Restaurant;
-                var restaurantUsers = _restaurantRepository.GetAll().ToList();
+                var restaurantUser = await _restaurantRepository.GetAll().FirstOrDefaultAsync();
 
-                var restss = _dbContext.Restaurants.ToList();
                 if (restaurantUser == null)
                     throw new Exception($"Not found restaurant user");
-
 
                 foreach (var item in Enum.GetValues(typeof(FoodType)).Cast<FoodType>())
                 {
