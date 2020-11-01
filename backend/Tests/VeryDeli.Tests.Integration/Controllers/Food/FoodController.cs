@@ -8,7 +8,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
     public class FoodController : BaseController
     {
         [Fact]
-        public async Task BasicEndPointTest()
+        public async Task GetFoodsByFoodType_S_ShouldBeTrue()
         {
 
             //
@@ -20,7 +20,7 @@ namespace VeryDeli.Tests.Integration.Controllers.Food
         }
 
         [Fact]
-        public async Task BasicEndPointTest2()
+        public async Task Seach_S_ShouldBeTrue()
         {
 
             //arrange
