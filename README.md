@@ -8,7 +8,7 @@
 * [Setup](#setup)
 
 ## General info
-Food delivery application using ASP .NET Core, and Vue.js
+Food delivery application using ASP .NET Core and Vue.js
 	
 ## Technologies
 Project is created with:
