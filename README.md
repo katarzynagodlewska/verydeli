@@ -18,3 +18,9 @@ Project is created with:
 To run VeryDeli server application:
 
 To run VeryDeli front:
+```
+npm install
+```
+```
+npm run serve
+```
