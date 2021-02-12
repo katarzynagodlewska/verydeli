@@ -25,8 +25,8 @@ namespace VeryDeli.Api.Queries.Handlers
                 FoodModels =
                     await _foodRepository
                         .GetAll()
-                        .Include(f=>f.Image)
-                        .Include(f=>f.FoodFoodTypes)
+                        .Include(f => f.Image)
+                        .Include(f => f.FoodFoodTypes)
                         .Where(f =>
                             f.FoodFoodTypes.Select(fft => fft.FoodTypeId).Contains(homeFoodsQuery.FoodType))
                         .Take(12)
@@ -36,7 +36,7 @@ namespace VeryDeli.Api.Queries.Handlers
                             Description = f.Description,
                             Title = f.Name,
                             Price = f.Price,
-                            Image = f.Image.Data 
+                            Image = f.Image.Data,
                         })
                         .ToListAsync()
             };
