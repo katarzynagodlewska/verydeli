@@ -7,30 +7,30 @@ using VeryDeli.Api.Responses.Home;
 using VeryDeli.Tests.Integration.Api.Controllers.Base;
 using Xunit;
 
-namespace VeryDeli.Tests.Integration.Api.Controllers.Food
+namespace VeryDeli.Tests.Integration.Api.Controllers
 {
     [Collection("Db")]
     public class FoodControllerTests : BaseController
     {
+        private const int _maxRowsForRequest = 12;
+
         [Fact]
         public async Task GetFoodsByFoodType_GivenBreakfastType_ShouldReturnFoodListRelatedToBreakfast()
         {
-            //arranhe
             var foodController = Host.Services.GetService<FoodController>();
 
-            //act
             var resposne = await foodController.GetFoodsByFoodType(new HomeFoodsQuery()
             {
                 FoodType = Data.Enums.FoodType.Breakfast
             });
 
-            // Assert
-
             ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
 
             var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
 
-            Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Equal(foodModel.)
+            Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Breakfast, foodModel.FoodTypes));
+            Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
+
 
             var responseString = await response.Content.ReadAsStringAsync();
             Assert.Equal("", responseString);
