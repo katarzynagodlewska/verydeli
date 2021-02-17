@@ -25,8 +25,8 @@ namespace VeryDeli.Api.Controllers
             _foodCommandHandler = foodCommandHandler;
         }
 
-        [HttpGet("GetFoodsByFoodType")]
-        public async Task<IActionResult> GetFoodsByFoodType([FromQuery] HomeFoodsQuery homeFoodsQuery)
+        [HttpGet("GetFoods")]
+        public async Task<IActionResult> GetFoods([FromQuery] HomeFoodsQuery homeFoodsQuery)
         {
             return Ok(await _foodQueryHandler.Handle(homeFoodsQuery));
         }
