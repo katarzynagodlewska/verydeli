@@ -17,11 +17,11 @@ async function login(
       login: userData.email,
       password: userData.password,
     }),
-    headers: { "Content-Type": "application/json", credentials: "include" },
+    headers: { "Content-Type": "application/json" },
   };
 
   const response = (await (
-    await fetch(`${backendUrl}/User/login`, requestOptions)
+    await fetch(`${backendUrl}User/login`, requestOptions)
   ).json()) as Promise<UserLoginResponseModel>;
 
   return response;
@@ -42,7 +42,7 @@ async function register(
   };
 
   const response = (await (
-    await fetch(`${backendUrl}/User/register`, requestOptions)
+    await fetch(`${backendUrl}User/register`, requestOptions)
   ).json()) as Promise<UserLoginResponseModel>;
 
   return response;

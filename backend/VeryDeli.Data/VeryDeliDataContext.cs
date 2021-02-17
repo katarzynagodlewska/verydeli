@@ -87,6 +87,9 @@ namespace VeryDeli.Data
                 .HasOne(m => m.Food)
                 .WithMany(f => f.FoodFoodTypes)
                 .HasForeignKey(ft => ft.FoodId);
+
+            modelBuilder.Entity<Food>().Property(r => r.Price)
+                .HasColumnType("decimal(5,2)");
         }
     }
 }

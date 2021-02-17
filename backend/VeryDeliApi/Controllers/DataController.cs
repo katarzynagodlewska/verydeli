@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -122,16 +123,36 @@ namespace VeryDeli.Api.Controllers
                     }
                 }
 
-                var foodsStoredInDatabase = await _foodRepository.GetAll().ToListAsync();
+                var foodsStoredInDatabase = await _foodRepository.GetAll().Include(f => f.FoodFoodTypes).ToListAsync();
                 var restaurantUser = await _restaurantRepository.GetAll().FirstOrDefaultAsync();
 
                 if (restaurantUser == null)
                     throw new Exception($"Not found restaurant user");
 
+                var imagesFilePathsInProject = Directory.GetFiles($"{Directory.GetCurrentDirectory()}\\Images\\");
+
                 foreach (var item in Enum.GetValues(typeof(FoodType)).Cast<FoodType>())
                 {
                     if (!foodsStoredInDatabase.Any(f => f.FoodFoodTypes.Select(ff => ff.FoodTypeId).Contains(item)))
                     {
+                        Image foodImage = null;
+                        var imageFilePath = imagesFilePathsInProject.FirstOrDefault(i => i.EndsWith($"{item}_image.jpg".ToLower()));
+                        if (!string.IsNullOrWhiteSpace(imageFilePath))
+                        {
+                            var fileInfo = new FileInfo(imageFilePath);
+                            var data = new byte[fileInfo.Length];
+
+                            await using (var fs = fileInfo.OpenRead())
+                                fs.Read(data, 0, data.Length);
+
+                            foodImage = new Image
+                            {
+                                FileName = fileInfo.Name,
+                                Data = data,
+                                Length = fileInfo.Length,
+                                ContentType = "image/jpeg",
+                            };
+                        }
                         await _foodRepository.Add(new Food
                         {
                             Description = $"{item} description",
@@ -145,7 +166,9 @@ namespace VeryDeli.Api.Controllers
                             Restaurant = restaurantUser,
                             Name = $"{item} title",
                             Price = 30,
-                            Quantity = 1
+                            Quantity = 1,
+                            Image = foodImage,
+                            PreparingTime = 30
                         });
                     }
                 }

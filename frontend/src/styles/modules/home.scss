@@ -6,13 +6,57 @@
     align-items: center;
     flex-direction: column;
     margin: 2rem;
-    &__brekfast-img {
+    &__food-img {
         @include home-img;
     }
-    &__dinner-img {
-        @include home-img;
+}
+.home-food-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.meal {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 20px;
+    max-width: 1250px;
+    padding: 0 2rem;
+    &__description {
+        //display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1.25rem;
+        word-break: break-word;
+        margin: 4px 4px 4px 0;
+        font-size: 1rem;
     }
-    &__lunch-img {
-        @include home-img;
+    &__img {
+        height: 8rem;
+        width: 8rem;
+        position: relative;
+        float: right;
+        object-fit: cover;
+    }
+    &__item {
+        display: block;
+        border: solid 1px $grey;
+        width: auto;
+        overflow: hidden;
+        padding-left: 8px;
+    }
+    &__price {
+        display: block;
+        line-height: 24px;
+    }
+    &__title {
+        text-align: left;
+        font-size: 1.125rem;
+        margin: 8px 4px 4px 0;
+        font-weight: 600;
     }
 }

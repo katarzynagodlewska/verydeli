@@ -1,0 +1,59 @@
+@import "../mixins";
+@import "../variables";
+
+.search {
+    max-width: 300px;
+    margin: 1rem 0 0;
+    &__input {
+        margin: 4px 32px 0 24px;
+        height: 26px;
+        outline: none;
+        border: solid 2px $grey;
+        border-radius: 2px;
+        &:focus {
+            border: solid 2px $lime;
+        }
+        &::-webkit-search-cancel-button {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background-image: url("../assets/img/icon-cancel.svg");
+        }
+    }
+}
+
+.search-item {
+    height: 72px;
+    border-bottom: solid 1px #000;
+    margin: 0;
+    padding: 0 4px 0 4px;
+    &__img {
+        height: 48px;
+        width: 48px;
+        object-fit: cover;
+        float: left;
+        margin-right: 4px;
+    }
+    &__price {
+        font-size: 12px;
+        text-align: right;
+        margin-right: 8px;
+    }
+    &__title {
+        height: 38px;
+        margin-left: 4px;
+        font-weight: 600;
+        font-size: 12px;
+        margin: 12px 0;
+    }
+}
+
+.search-list {
+    min-width: 250px;
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    background-color: $light-grey;
+    z-index: 1;
+    border-radius: 2px;
+}

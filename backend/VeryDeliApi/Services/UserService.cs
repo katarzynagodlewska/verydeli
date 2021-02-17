@@ -66,6 +66,7 @@ namespace VeryDeli.Api.Services
             return new LoginResponse
             {
                 Token = tokenHandler.WriteToken(token),
+                UserTypeId = user.UserTypeId
             };
         }
 

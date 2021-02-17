@@ -2,15 +2,55 @@
 @import "../mixins.scss";
 
 .box-to-log-and-register {
-    display: none;
-    background: $light-grey;
+    @include navbar-box;
     min-width: 5rem;
-    height: auto;
-    margin: 3rem 0rem 1rem 1rem;
-    padding: 8px;
-    position: absolute;
-    border-radius: 4px;
+    margin: 3rem 0.25rem 1rem 1rem;
     &:hover {
+        display: block;
+    }
+}
+
+.cart-box {
+    @include navbar-box;
+    max-width: 200px;
+    margin: 50px 2rem 1rem 1rem;
+    font-size: 12px;
+    line-height: 1.5;
+    &:hover {
+        display: block;
+    }
+    &__button {
+        background: black;
+        color: white;
+        font-size: 16px;
+        margin: 4px 16px;
+        padding: 6px;
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        &:active {
+            color: $lime;
+        }
+    }
+    &__item {
+        //border-bottom: solid 1px $grey;
+        margin: 8px;
+    }
+    &__name {
+        display: block;
+    }
+    &__price {
+        display: block;
+    }
+}
+
+.icon-cart {
+    display: flex;
+
+    height: 2.25rem;
+    cursor: pointer;
+    margin: 1rem 1rem 0;
+    &:hover + .cart-box {
         display: block;
     }
 }
@@ -49,4 +89,10 @@
 .nav {
     display: flex;
     justify-content: flex-end;
+    padding: 0 1.5rem;
+}
+
+.navbarcart-container {
+    display: flex;
+    justify-content: center;
 }
