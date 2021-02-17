@@ -30,24 +30,6 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
 
             Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Breakfast, foodModel.FoodTypes));
             Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
-
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            Assert.Equal("", responseString);
-        }
-
-        [Fact]
-        public async Task Seach_S_ShouldBeTrue()
-        {
-
-            //arrange
-
-            //act
-            var response = await Client.GetAsync("/api/food/GetFoodsByFoodType");
-
-            // Assert
-            var responseString = await response.Content.ReadAsStringAsync();
-            Assert.Equal("", responseString);
         }
     }
 }
