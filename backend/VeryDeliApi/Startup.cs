@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,11 +27,19 @@ namespace VeryDeli.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            services.AddMvc(
+                    config =>
+                    {
+                        config.EnableEndpointRouting = false;
+                    })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddControllersAsServices();
             services.AddControllers();
             services.AddJwtConfiguration(Configuration);
             services.AddDatabaseConfiguration(Configuration, _env);
             services.RegisterComponents();
-            services.AddSwaggerConfiguration();
+            if (_env.EnvironmentName != "Test")
+                services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +55,14 @@ namespace VeryDeli.Api
                 app.UseHsts();
             }
 
-            var swaggerOptions = new SwaggerOptions();
-            Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+            if (env.EnvironmentName != "Test")
+            {
+                var swaggerOptions = new SwaggerOptions();
+                Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
 
-            app.UseSwagger(option => option.RouteTemplate = swaggerOptions.JsonRoute);
-            app.UseSwaggerUI(option => option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description));
-
+                app.UseSwagger(option => option.RouteTemplate = swaggerOptions.JsonRoute);
+                app.UseSwaggerUI(option => option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description));
+            }
             app.UseHttpsRedirection();
 
             app.UseRouting();

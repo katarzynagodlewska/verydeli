@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using VeryDeli.Api.Controllers;
-using VeryDeli.Api.Queries.Handlers;
+using VeryDeli.Api.Queries;
 using VeryDeli.Api.Responses.Home;
 using VeryDeli.Tests.Integration.Api.Controllers.Base;
 using Xunit;
@@ -19,7 +19,7 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoodsByFoodType(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
             {
                 FoodType = Data.Enums.FoodType.Breakfast
             });
@@ -29,6 +29,42 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
             var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
 
             Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Breakfast, foodModel.FoodTypes));
+            Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
+        }
+
+        [Fact]
+        public async Task GetFoodsByFoodType_GivenDinnerType_ShouldReturnFoodListRelatedToDinner()
+        {
+            var foodController = Host.Services.GetService<FoodController>();
+
+            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            {
+                FoodType = Data.Enums.FoodType.Dinner
+            });
+
+            ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
+
+            var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
+
+            Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Dinner, foodModel.FoodTypes));
+            Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
+        }
+
+        [Fact]
+        public async Task GetFoodsByFoodType_GivenLunchType_ShouldReturnFoodListRelatedToLunch()
+        {
+            var foodController = Host.Services.GetService<FoodController>();
+
+            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            {
+                FoodType = Data.Enums.FoodType.Lunch
+            });
+
+            ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
+
+            var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
+
+            Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Lunch, foodModel.FoodTypes));
             Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
         }
     }

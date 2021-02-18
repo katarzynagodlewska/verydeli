@@ -10,7 +10,7 @@ namespace VeryDeli.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         private readonly IUserCommandHandler _userCommandHandler;
         private readonly IUserQueryHandler _userQueryHandler;

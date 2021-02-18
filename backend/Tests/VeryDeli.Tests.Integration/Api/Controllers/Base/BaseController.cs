@@ -5,8 +5,8 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
 using VeryDeli.Api;
+using VeryDeli.Api.Services.Abstraction;
 using VeryDeli.Data;
-using VeryDeli.Tests.Integration.Seeders;
 using VeryDeli.Tests.Integration.Validators;
 using Xunit;
 
@@ -26,20 +26,13 @@ namespace VeryDeli.Tests.Integration.Api.Controllers.Base
                 _server = new TestServer(new WebHostBuilder()
                             .UseEnvironment("Test")
                             .UseStartup<Startup>()
-                            .ConfigureTestServices(services =>
-                            {
-                            })
                             );
                 Host = _server.Host;
                 ApiRequestValidator = new ApiRequestValidator();
-                await SeedCustomData();
-            }));
-        }
+                var seedService = Host.Services.GetService<ISeedService>();
 
-        private async Task SeedCustomData()
-        {
-            var basicDataSeeder = new BasicDataSeeder(Host, ApiRequestValidator);
-            await basicDataSeeder.Seed();
+                await seedService.Seed();
+            }));
         }
 
         public void Dispose()

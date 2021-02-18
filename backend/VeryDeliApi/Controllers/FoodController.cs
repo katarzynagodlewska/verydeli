@@ -12,7 +12,7 @@ namespace VeryDeli.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FoodController : Controller
+    public class FoodController : ControllerBase
     {
         private readonly IFoodQueryHandler _foodQueryHandler;
         private readonly ISearchFoodsQueryHandler _searchFoodsQueryHandler;
