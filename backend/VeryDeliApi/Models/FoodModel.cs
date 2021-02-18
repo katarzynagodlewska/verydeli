@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using VeryDeli.Data.Enums;
 
 namespace VeryDeli.Api.Models
 {
@@ -9,5 +11,6 @@ namespace VeryDeli.Api.Models
         public decimal Price { get; set; }
         public string Description { get; set; }
         public byte[] Image { get; set; }
+        public List<FoodType> FoodTypes { get; set; }
     }
 }

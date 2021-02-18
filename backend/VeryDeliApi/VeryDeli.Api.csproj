@@ -19,5 +19,9 @@
     <ProjectReference Include="..\VeryDeli.Data\VeryDeli.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Base\" />
+  </ItemGroup>
+
 
 </Project>

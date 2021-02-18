@@ -40,7 +40,8 @@ namespace VeryDeli.Api.Queries.Handlers
                             Description = f.Description,
                             Title = f.Name,
                             Price = f.Price,
-                            Image = f.Image.Data
+                            Image = f.Image.Data,
+                            FoodTypes = f.FoodFoodTypes.Select(fft => fft.FoodTypeId).ToList()
                         })
                         .ToListAsync()
             };

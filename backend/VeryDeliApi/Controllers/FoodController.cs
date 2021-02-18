@@ -12,7 +12,7 @@ namespace VeryDeli.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FoodController : Controller
+    public class FoodController : ControllerBase
     {
         private readonly IFoodQueryHandler _foodQueryHandler;
         private readonly ISearchFoodsQueryHandler _searchFoodsQueryHandler;
@@ -25,8 +25,8 @@ namespace VeryDeli.Api.Controllers
             _foodCommandHandler = foodCommandHandler;
         }
 
-        [HttpGet("GetByFoodType")]
-        public async Task<IActionResult> GetFoodsByFoodType([FromQuery] HomeFoodsQuery homeFoodsQuery)
+        [HttpGet("GetFoods")]
+        public async Task<IActionResult> GetFoods([FromQuery] HomeFoodsQuery homeFoodsQuery)
         {
             return Ok(await _foodQueryHandler.Handle(homeFoodsQuery));
         }
