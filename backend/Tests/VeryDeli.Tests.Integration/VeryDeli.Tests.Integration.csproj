@@ -29,4 +29,8 @@
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\VeryDeli.Api\VeryDeli.Api.csproj" />
+  </ItemGroup>
+
 </Project>

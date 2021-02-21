@@ -1,38 +1,40 @@
 ﻿using System;
 using System.Linq;
-using System.Web.Http.Dependencies;
+using System.Threading.Tasks;
+using VeryDeli.Logic.Exceptions;
+using VeryDeli.Logic.Models;
 using VeryDeli.Logic.Queries;
 using VeryDeli.Logic.Queries.Handlers.Interfaces;
 
 namespace VeryDeli.Logic.Dispatchers.Implementation
 {
-    public class QueryDispatcher<TQuery, TResult> : IQueryDispatcher<TQuery, TResult> where TQuery : IQuery
+    public class QueryDispatcher : IQueryDispatcher
     {
-        private readonly IDependencyResolver _resolver;
+        private readonly IServiceProvider _provider;
 
-        public QueryDispatcher(IDependencyResolver resolver)
+        public QueryDispatcher(IServiceProvider provider)
         {
-            _resolver = resolver;
+            _provider = provider;
         }
 
-        public TResult Execute(IQuery query)
+        public async Task<ExecuteResult> Execute(IQuery query)
         {
-            if (query == null)
-            {
-                throw new ArgumentNullException("query");
-            }
-            var repositoryTypesList = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(t => t.GetTypes())
-                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Data.Repositories.Implementation").ToList();
-            
-            var queryHandler 
+            var interfaceTypeHandler = $"I{query.GetType().Name}Handler";
 
-            var handler = _resolver.GetService<IQueryHandler>()
-            if (handler == null)
+            var queryHandlerType = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(t => t.GetTypes())
+                .Where(t => t.Name == interfaceTypeHandler).FirstOrDefault();
+
+            var queryHandlerObject = _provider.GetService(queryHandlerType);
+
+            if (queryHandlerObject is IQueryHandler)
             {
-                throw new QueryHandlerNotFoundException(typeof(TQuery));
+                var queryHandler = queryHandlerObject as IQueryHandler;
+
+                return await queryHandler.Execute(query);
             }
-            return handler.Execute(query);
+
+            throw new QueryHandlerNotFoundException($"Could not found handler for query with type {typeof(IQuery)}");
         }
     }
 }

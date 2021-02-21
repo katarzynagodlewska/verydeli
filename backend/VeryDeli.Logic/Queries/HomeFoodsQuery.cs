@@ -2,7 +2,7 @@
 
 namespace VeryDeli.Logic.Queries
 {
-    public class HomeFoodsQuery
+    public class HomeFoodsQuery : IQuery
     {
         public FoodType FoodType { get; set; }
     }

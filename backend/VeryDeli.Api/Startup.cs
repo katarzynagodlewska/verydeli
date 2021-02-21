@@ -38,6 +38,7 @@ namespace VeryDeli.Api
             services.AddJwtConfiguration(Configuration);
             services.AddDatabaseConfiguration(Configuration, _env);
             services.RegisterComponents();
+
             if (_env.EnvironmentName != "Test")
                 services.AddSwaggerConfiguration();
         }

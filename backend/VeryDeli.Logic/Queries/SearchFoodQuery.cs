@@ -1,6 +1,6 @@
 ﻿namespace VeryDeli.Logic.Queries
 {
-    public class SearchFoodQuery
+    public class SearchFoodQuery : IQuery
     {
         public string SearchFoodText { get; set; }
         public int Take { get; set; }

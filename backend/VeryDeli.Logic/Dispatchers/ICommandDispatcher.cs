@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using VeryDeli.Logic.Commands;
 
 namespace VeryDeli.Logic.Dispatchers
 {
-    class ICommandDispatcher
+    public interface ICommandDispatcher
     {
+        void Execute(ICommand command);
     }
 }

@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
-using VeryDeli.Api.Commands.Handlers.Interfaces;
-using VeryDeli.Api.Queries.Handlers.Interfaces;
-using VeryDeli.Api.Services.Abstraction;
 using VeryDeli.Data.Repositories.Abstraction;
+using VeryDeli.Logic.Commands;
+using VeryDeli.Logic.Commands.Handlers.Interfaces;
+using VeryDeli.Logic.Dispatchers;
+using VeryDeli.Logic.Dispatchers.Implementation;
+using VeryDeli.Logic.Models;
+using VeryDeli.Logic.Queries;
+using VeryDeli.Logic.Queries.Handlers.Interfaces;
+using VeryDeli.Logic.Services.Abstraction;
 
 namespace VeryDeli.Api.Extensions.Startup
 {
@@ -24,7 +29,7 @@ namespace VeryDeli.Api.Extensions.Startup
 
             var serviceTypesList = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
-                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Api.Services").ToList();
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Services").ToList();
 
             services.Scan(scan => scan
                 .FromAssembliesOf(serviceTypesList)
@@ -32,13 +37,28 @@ namespace VeryDeli.Api.Extensions.Startup
                 .AsImplementedInterfaces()
                 .WithTransientLifetime());
 
-            services.Scan(scan => scan.FromCallingAssembly().AddClasses().AsMatchingInterface()
-                .AddClasses(classes => classes.AssignableTo(typeof(ICommandHandler)))
-                .AsImplementedInterfaces()
-                .WithTransientLifetime()
+            var queryHandlersList = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(t => t.GetTypes())
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Queries.Handlers").ToList(); ;
+
+            services.Scan(scan => scan
+                .FromAssembliesOf(queryHandlersList)
                 .AddClasses(classes => classes.AssignableTo(typeof(IQueryHandler)))
                 .AsImplementedInterfaces()
                 .WithTransientLifetime());
+
+            var commandHandlersList = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(t => t.GetTypes())
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Commands.Handlers").ToList(); ; ;
+
+            services.Scan(scan => scan
+                .FromAssembliesOf(commandHandlersList)
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandHandler<,>)))
+                .AsImplementedInterfaces()
+                .WithTransientLifetime());
+
+            services.AddScoped<IQueryDispatcher, QueryDispatcher>();
+            services.AddScoped<ICommandDispatcher, CommandDispatcher>();
 
             return services;
         }

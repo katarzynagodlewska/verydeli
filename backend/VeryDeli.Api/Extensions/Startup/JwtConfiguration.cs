@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using VeryDeli.Api.Options;
+using VeryDeli.Logic.Options;
 
 namespace VeryDeli.Api.Extensions.Startup
 {

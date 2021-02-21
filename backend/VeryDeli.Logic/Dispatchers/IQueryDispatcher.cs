@@ -1,9 +1,11 @@
-﻿using VeryDeli.Logic.Queries;
+﻿using System.Threading.Tasks;
+using VeryDeli.Logic.Models;
+using VeryDeli.Logic.Queries;
 
 namespace VeryDeli.Logic.Dispatchers
 {
-    public interface IQueryDispatcher<TQuery, TResult>
+    public interface IQueryDispatcher
     {
-        TResult Execute(IQuery query);
+        Task<ExecuteResult> Execute(IQuery query);
     }
 }

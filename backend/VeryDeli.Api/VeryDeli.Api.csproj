@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VeryDeli.Data\VeryDeli.Data.csproj" />
+    <ProjectReference Include="..\VeryDeli.Logic\VeryDeli.Logic.csproj" />
   </ItemGroup>
 
   <ItemGroup>

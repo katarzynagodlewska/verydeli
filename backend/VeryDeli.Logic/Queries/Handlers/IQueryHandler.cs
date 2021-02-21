@@ -1,7 +1,10 @@
-﻿namespace VeryDeli.Logic.Queries.Handlers.Interfaces
+﻿using System.Threading.Tasks;
+using VeryDeli.Logic.Models;
+
+namespace VeryDeli.Logic.Queries.Handlers.Interfaces
 {
-    public interface IQueryHandler<TQuery, TResult> where TQuery : IQuery
+    public interface IQueryHandler
     {
-        TResult Execute(TQuery query);
+        Task<ExecuteResult> Execute(IQuery query);
     }
 }

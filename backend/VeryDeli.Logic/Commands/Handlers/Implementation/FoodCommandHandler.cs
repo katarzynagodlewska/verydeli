@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VeryDeli.Logic.Commands.Handlers.Interfaces;
-using VeryDeli.Api.Responses.Food;
 using VeryDeli.Data.Domains;
 using VeryDeli.Data.Repositories.Abstraction;
-using VeryDeli.Logic.Commands;
+using VeryDeli.Logic.Models.Results.Food;
 
 namespace VeryDeli.Logic.Commands.Handlers
 {
-    public class FoodCommandHandler : IFoodCommandHandler
+    public class FoodCommandHandler
     {
         private readonly IFoodRepository _foodRepository;
         private readonly IFoodTypeRepository _foodTypeRepository;
@@ -23,7 +21,7 @@ namespace VeryDeli.Logic.Commands.Handlers
             _foodFoodTypeRepository = foodFoodTypeRepository;
         }
 
-        public async Task<FoodDetailsResponse> Handle(Restaurant restaurantUser, FoodCommand foodCommand)
+        public async Task<FoodDetailsResult> Handle(Restaurant restaurantUser, FoodCommand foodCommand)
         {
             var foodTypesRelatesToCommand = _foodTypeRepository
                 .GetAll()
@@ -54,7 +52,7 @@ namespace VeryDeli.Logic.Commands.Handlers
 
             food = await _foodRepository.Add(food);
 
-            return new FoodDetailsResponse
+            return new FoodDetailsResult
             {
                 Id = food.Id,
                 Title = food.Name,
@@ -65,7 +63,7 @@ namespace VeryDeli.Logic.Commands.Handlers
             };
         }
 
-        public async Task<FoodDetailsResponse> Handle(Guid id, FoodCommand foodCommand)
+        public async Task<FoodDetailsResult> Handle(Guid id, FoodCommand foodCommand)
         {
             var food = await _foodRepository.GetById(id);
 
@@ -90,7 +88,7 @@ namespace VeryDeli.Logic.Commands.Handlers
 
             await _foodRepository.Update(food);
 
-            return new FoodDetailsResponse
+            return new FoodDetailsResult
             {
                 Id = food.Id,
                 Title = food.Name,
@@ -112,12 +110,12 @@ namespace VeryDeli.Logic.Commands.Handlers
                 await _foodFoodTypeRepository.Remove(item);
         }
 
-        public async Task<DeleteFoodResponse> Handle(Guid id)
+        public async Task<DeleteFoodResult> Handle(Guid id)
         {
             //TODO or set isdeleted flag. It could be stored as historical data?
             await _foodRepository.RemoveById(id);
 
-            return new DeleteFoodResponse() { ResponseMessage = "Succcessfully deleted food item" };
+            return new DeleteFoodResult() { ResponseMessage = "Succcessfully deleted food item" };
         }
     }
 }

@@ -5,8 +5,8 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
 using VeryDeli.Api;
-using VeryDeli.Api.Services.Abstraction;
 using VeryDeli.Data;
+using VeryDeli.Logic.Services.Abstraction;
 using VeryDeli.Tests.Integration.Validators;
 using Xunit;
 
