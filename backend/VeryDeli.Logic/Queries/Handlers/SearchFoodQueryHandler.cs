@@ -8,7 +8,7 @@ using VeryDeli.Logic.Queries.Handlers.Interfaces;
 
 namespace VeryDeli.Logic.Queries.Handlers
 {
-    public class SearchFoodQueryHandler : ISearchFoodQueryHandler
+    public class SearchFoodQueryHandler : IQueryHandler
     {
         private readonly IFoodRepository _foodRepository;
 

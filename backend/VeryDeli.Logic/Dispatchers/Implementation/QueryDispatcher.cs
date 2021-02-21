@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using VeryDeli.Logic.Exceptions;
@@ -19,13 +20,13 @@ namespace VeryDeli.Logic.Dispatchers.Implementation
 
         public async Task<ExecuteResult> Execute(IQuery query)
         {
-            var interfaceTypeHandler = $"I{query.GetType().Name}Handler";
+            var interfaceTypeHandler = $"{query.GetType().Name}Handler";
 
             var queryHandlerType = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
                 .Where(t => t.Name == interfaceTypeHandler).FirstOrDefault();
 
-            var queryHandlerObject = _provider.GetService(queryHandlerType);
+            var queryHandlerObject = ActivatorUtilities.GetServiceOrCreateInstance(_provider, queryHandlerType);
 
             if (queryHandlerObject is IQueryHandler)
             {
