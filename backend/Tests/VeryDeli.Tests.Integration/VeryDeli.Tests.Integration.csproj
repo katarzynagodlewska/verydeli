@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\VeryDeliApi\VeryDeli.Api.csproj" />
+    <ProjectReference Include="..\..\VeryDeli.Api\VeryDeli.Api.csproj" />
   </ItemGroup>
 
 </Project>

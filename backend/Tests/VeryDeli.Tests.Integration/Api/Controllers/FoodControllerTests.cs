@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using VeryDeli.Api.Controllers;
-using VeryDeli.Api.Queries;
-using VeryDeli.Api.Responses.Home;
+using VeryDeli.Logic.Models.Results.Food;
+using VeryDeli.Logic.Queries.Data.Food;
 using VeryDeli.Tests.Integration.Api.Controllers.Base;
 using Xunit;
 
@@ -19,14 +19,14 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Breakfast
             });
 
             ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
 
-            var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
+            var homeFoodResposne = (HomeFoodsResult)((OkObjectResult)resposne).Value;
 
             Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Breakfast, foodModel.FoodTypes));
             Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
@@ -37,14 +37,14 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Dinner
             });
 
             ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
 
-            var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
+            var homeFoodResposne = (HomeFoodsResult)((OkObjectResult)resposne).Value;
 
             Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Dinner, foodModel.FoodTypes));
             Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
@@ -55,14 +55,14 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Lunch
             });
 
             ApiRequestValidator.EnsureRequestSuccess<OkObjectResult>(resposne);
 
-            var homeFoodResposne = (HomeFoodsResponse)((OkObjectResult)resposne).Value;
+            var homeFoodResposne = (HomeFoodsResult)((OkObjectResult)resposne).Value;
 
             Assert.All(homeFoodResposne.FoodModels, foodModel => Assert.Contains(Data.Enums.FoodType.Lunch, foodModel.FoodTypes));
             Assert.True(homeFoodResposne.FoodModels.Count <= _maxRowsForRequest);
