@@ -1,8 +1,8 @@
 ﻿using VeryDeli.Data.Enums;
 
-namespace VeryDeli.Logic.Queries
+namespace VeryDeli.Logic.Queries.Data.Food
 {
-    public class HomeFoodsQuery : IQuery
+    public class HomeFoodQuery : IQuery
     {
         public FoodType FoodType { get; set; }
     }

@@ -9,9 +9,8 @@ using VeryDeli.Data.Domains;
 using VeryDeli.Data.Repositories.Abstraction;
 using VeryDeli.Logic.Models.Results.User;
 using VeryDeli.Logic.Options;
-using VeryDeli.Logic.Services.Abstraction;
 
-namespace VeryDeli.Api.Services
+namespace VeryDeli.Logic.Services.Implementation
 {
     public class UserService : IUserService
     {

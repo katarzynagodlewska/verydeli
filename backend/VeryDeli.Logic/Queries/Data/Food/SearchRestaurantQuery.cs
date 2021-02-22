@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VeryDeli.Logic.Queries
+namespace VeryDeli.Logic.Queries.Data.Food
 {
     public class SearchRestaurantQuery : IQuery
     {

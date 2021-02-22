@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using VeryDeli.Data.Domains;
 using VeryDeli.Logic.Models.Results.User;
 
-namespace VeryDeli.Logic.Services.Abstraction
+namespace VeryDeli.Logic.Services
 {
     public interface IUserService : IService
     {

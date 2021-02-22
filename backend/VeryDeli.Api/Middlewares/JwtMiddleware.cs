@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VeryDeli.Logic.Options;
-using VeryDeli.Logic.Services.Abstraction;
+using VeryDeli.Logic.Services;
 
 namespace VeryDeli.Api.Middlewares
 {

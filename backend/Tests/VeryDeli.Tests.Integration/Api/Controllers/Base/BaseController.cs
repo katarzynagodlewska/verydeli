@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using VeryDeli.Api;
 using VeryDeli.Data;
-using VeryDeli.Logic.Services.Abstraction;
+using VeryDeli.Logic.Services;
 using VeryDeli.Tests.Integration.Validators;
 using Xunit;
 

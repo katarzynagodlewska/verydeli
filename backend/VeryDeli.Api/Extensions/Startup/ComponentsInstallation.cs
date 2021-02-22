@@ -6,7 +6,7 @@ using VeryDeli.Logic.Commands.Handlers.Interfaces;
 using VeryDeli.Logic.Dispatchers;
 using VeryDeli.Logic.Dispatchers.Implementation;
 using VeryDeli.Logic.Queries.Handlers.Interfaces;
-using VeryDeli.Logic.Services.Abstraction;
+using VeryDeli.Logic.Services;
 
 namespace VeryDeli.Api.Extensions.Startup
 {

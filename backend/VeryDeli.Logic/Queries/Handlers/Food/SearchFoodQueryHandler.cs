@@ -3,12 +3,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using VeryDeli.Data.Repositories.Abstraction;
 using VeryDeli.Logic.Models;
+using VeryDeli.Logic.Models.Data.Food;
 using VeryDeli.Logic.Models.Results.Food;
+using VeryDeli.Logic.Queries.Data.Food;
 using VeryDeli.Logic.Queries.Handlers.Interfaces;
 
 namespace VeryDeli.Logic.Queries.Handlers.Food
 {
-    public class SearchFoodQueryHandler : IQueryHandler
+    class SearchFoodQueryHandler : IQueryHandler
     {
         private readonly IFoodRepository _foodRepository;
 

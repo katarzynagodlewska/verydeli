@@ -7,11 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using VeryDeli.Data.Domains;
 using VeryDeli.Data.Repositories.Abstraction;
-using VeryDeli.Logic.Services.Abstraction;
 using FoodType = VeryDeli.Data.Enums.FoodType;
 using UserType = VeryDeli.Data.Enums.UserType;
 
-namespace VeryDeli.Logic.Services
+namespace VeryDeli.Logic.Services.Implementation
 {
     public class SeedService : ISeedService
     {

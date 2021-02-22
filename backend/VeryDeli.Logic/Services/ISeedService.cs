@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace VeryDeli.Logic.Services.Abstraction
+namespace VeryDeli.Logic.Services
 {
     public interface ISeedService : IService
     {

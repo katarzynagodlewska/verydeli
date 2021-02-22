@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using VeryDeli.Api.Controllers;
-using VeryDeli.Logic.Models.Results.Home;
-using VeryDeli.Logic.Queries;
+using VeryDeli.Logic.Models.Results.Food;
+using VeryDeli.Logic.Queries.Data.Food;
 using VeryDeli.Tests.Integration.Api.Controllers.Base;
 using Xunit;
 
@@ -19,7 +19,7 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Breakfast
             });
@@ -37,7 +37,7 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Dinner
             });
@@ -55,7 +55,7 @@ namespace VeryDeli.Tests.Integration.Api.Controllers
         {
             var foodController = Host.Services.GetService<FoodController>();
 
-            var resposne = await foodController.GetFoods(new HomeFoodsQuery()
+            var resposne = await foodController.GetFoods(new HomeFoodQuery()
             {
                 FoodType = Data.Enums.FoodType.Lunch
             });

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using VeryDeli.Logic.Services.Abstraction;
+using VeryDeli.Logic.Services;
 
 namespace VeryDeli.Api.Controllers
 {

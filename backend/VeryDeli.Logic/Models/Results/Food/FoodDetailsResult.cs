@@ -2,7 +2,7 @@
 
 namespace VeryDeli.Logic.Models.Results.Food
 {
-    public class FoodDetailsResult
+    public class FoodDetailsResult : ExecuteResult
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
