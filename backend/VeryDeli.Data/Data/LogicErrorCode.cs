@@ -2,6 +2,8 @@
 {
     public enum LogicErrorCode : byte
     {
-        QueryHandlerNotFound = 1,
+        DefaultError = 0,
+        QueryHandlerNotFound,
+        CommandHandlerNotFound
     }
 }

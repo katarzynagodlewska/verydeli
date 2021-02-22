@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using VeryDeli.Logic.Exceptions;
+using VeryDeli.Data.Data;
 using VeryDeli.Logic.Models;
 using VeryDeli.Logic.Queries;
 using VeryDeli.Logic.Queries.Handlers.Interfaces;
@@ -20,11 +20,11 @@ namespace VeryDeli.Logic.Dispatchers.Implementation
 
         public async Task<ExecuteResult> Execute(IQuery query)
         {
-            var interfaceTypeHandler = $"{query.GetType().Name}Handler";
+            var typeHandlerName = $"{query.GetType().Name}Handler";
 
             var queryHandlerType = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
-                .Where(t => t.Name == interfaceTypeHandler).FirstOrDefault();
+                .Where(t => t.Name == typeHandlerName).FirstOrDefault();
 
             var queryHandlerObject = ActivatorUtilities.GetServiceOrCreateInstance(_provider, queryHandlerType);
 
@@ -35,7 +35,7 @@ namespace VeryDeli.Logic.Dispatchers.Implementation
                 return await queryHandler.Execute(query);
             }
 
-            throw new QueryHandlerNotFoundException($"Could not found handler for query with type {typeof(IQuery)}");
+            throw new LogicException($"Could not found handler for query: {nameof(query)}");
         }
     }
 }

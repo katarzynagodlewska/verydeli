@@ -1,7 +1,10 @@
-﻿namespace VeryDeli.Logic.Commands.Handlers.Interfaces
+﻿using System.Threading.Tasks;
+using VeryDeli.Logic.Models;
+
+namespace VeryDeli.Logic.Commands.Handlers.Interfaces
 {
-    public interface ICommandHandler<TCommand, TResult> where TCommand : ICommand
+    public interface ICommandHandler
     {
-        TResult Handle(TCommand command);
+        Task<ExecuteResult> Handle(ICommand command);
     }
 }

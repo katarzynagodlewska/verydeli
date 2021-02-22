@@ -1,9 +1,11 @@
-﻿using VeryDeli.Logic.Commands;
+﻿using System.Threading.Tasks;
+using VeryDeli.Logic.Commands;
+using VeryDeli.Logic.Models;
 
 namespace VeryDeli.Logic.Dispatchers
 {
     public interface ICommandDispatcher
     {
-        void Execute(ICommand command);
+        Task<ExecuteResult> Execute(ICommand command);
     }
 }

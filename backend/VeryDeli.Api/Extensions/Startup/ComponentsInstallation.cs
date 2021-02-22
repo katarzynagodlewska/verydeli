@@ -2,12 +2,9 @@
 using System;
 using System.Linq;
 using VeryDeli.Data.Repositories.Abstraction;
-using VeryDeli.Logic.Commands;
 using VeryDeli.Logic.Commands.Handlers.Interfaces;
 using VeryDeli.Logic.Dispatchers;
 using VeryDeli.Logic.Dispatchers.Implementation;
-using VeryDeli.Logic.Models;
-using VeryDeli.Logic.Queries;
 using VeryDeli.Logic.Queries.Handlers.Interfaces;
 using VeryDeli.Logic.Services.Abstraction;
 
@@ -39,7 +36,7 @@ namespace VeryDeli.Api.Extensions.Startup
 
             var queryHandlersList = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
-                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Queries.Handlers").ToList(); ;
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Queries.Handlers").ToList();
 
             services.Scan(scan => scan
                 .FromAssembliesOf(queryHandlersList)
@@ -49,11 +46,11 @@ namespace VeryDeli.Api.Extensions.Startup
 
             var commandHandlersList = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
-                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Commands.Handlers").ToList(); ; ;
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Commands.Handlers").ToList();
 
             services.Scan(scan => scan
                 .FromAssembliesOf(commandHandlersList)
-                .AddClasses(classes => classes.AssignableTo(typeof(ICommandHandler<,>)))
+                .AddClasses(classes => classes.AssignableTo(typeof(ICommandHandler)))
                 .AsImplementedInterfaces()
                 .WithTransientLifetime());
 
