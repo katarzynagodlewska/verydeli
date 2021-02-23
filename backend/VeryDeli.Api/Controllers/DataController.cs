@@ -16,6 +16,8 @@ namespace VeryDeli.Api.Controllers
             _seedService = seedService;
         }
 
+        //TODO probably should be deleted later
+        //
         [HttpGet("Seed")]
         public async Task<IActionResult> Seed()
         {
