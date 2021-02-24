@@ -10,17 +10,13 @@ namespace VeryDeli.Logic.Creators.Order
     {
         public IOrderStrategy CreateOrderStrategy(OrderChoice orderChoice)
         {
-            switch (orderChoice)
+            return orderChoice switch
             {
-                case OrderChoice.Delivery:
-                    return new OrderWithDeliveryStrategy();
-                case OrderChoice.CustomerPick:
-                    return new OrderWithCustomerPickStrategy();
-                case OrderChoice.EatInRestaurant:
-                    return new OrderWithEatInRestaurantStrategy();
-                default:
-                    throw new LogicException("Could not found order choice");
-            }
+                OrderChoice.Delivery => new OrderWithDeliveryStrategy(),
+                OrderChoice.CustomerPick => new OrderWithCustomerPickStrategy(),
+                OrderChoice.EatInRestaurant => new OrderWithEatInRestaurantStrategy(),
+                _ => throw new LogicException("Could not found order choice"),
+            };
         }
     }
 }
