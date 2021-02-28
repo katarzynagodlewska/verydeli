@@ -42,7 +42,7 @@ namespace VeryDeli.Logic.Services.Implementation
             {
                 if (!foodTypesStoredInDatabase.Contains(item))
                 {
-                    await _foodTypeRepository.Add(new Data.Domains.FoodType
+                    await _foodTypeRepository.Add(new VeryDeli.Data.Domains.FoodType
                     {
                         Id = item
                     });
@@ -55,7 +55,7 @@ namespace VeryDeli.Logic.Services.Implementation
             {
                 if (!userTypesStoredInDatabase.Contains(item))
                 {
-                    await _userTypeRepository.Add(new Data.Domains.UserType
+                    await _userTypeRepository.Add(new VeryDeli.Data.Domains.UserType
                     {
                         Id = item
                     });
