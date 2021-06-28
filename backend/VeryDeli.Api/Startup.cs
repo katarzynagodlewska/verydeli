@@ -13,15 +13,15 @@ namespace VeryDeli.Api
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            _configuration = configuration;
             _env = env;
-            Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,8 +35,8 @@ namespace VeryDeli.Api
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddControllersAsServices();
             services.AddControllers();
-            services.AddJwtConfiguration(Configuration);
-            services.AddDatabaseConfiguration(Configuration, _env);
+            services.AddJwtConfiguration(_configuration);
+            services.AddDatabaseConfiguration(_configuration, _env);
             services.RegisterComponents();
 
             if (_env.EnvironmentName != "Test")
@@ -59,7 +59,7 @@ namespace VeryDeli.Api
             if (env.EnvironmentName != "Test")
             {
                 var swaggerOptions = new SwaggerOptions();
-                Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+                _configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
 
                 app.UseSwagger(option => option.RouteTemplate = swaggerOptions.JsonRoute);
                 app.UseSwaggerUI(option => option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description));

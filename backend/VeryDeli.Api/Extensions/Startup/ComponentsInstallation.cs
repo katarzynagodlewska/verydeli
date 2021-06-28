@@ -26,7 +26,7 @@ namespace VeryDeli.Api.Extensions.Startup
 
             var serviceTypesList = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(t => t.GetTypes())
-                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Services").ToList();
+                .Where(t => t.IsClass && t.Namespace == "VeryDeli.Logic.Services.Implementation").ToList();
 
             services.Scan(scan => scan
                 .FromAssembliesOf(serviceTypesList)

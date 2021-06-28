@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\Base\**" />
+    <Content Remove="Controllers\Base\**" />
+    <EmbeddedResource Remove="Controllers\Base\**" />
+    <None Remove="Controllers\Base\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -18,10 +25,6 @@
   <ItemGroup>
     <ProjectReference Include="..\VeryDeli.Data\VeryDeli.Data.csproj" />
     <ProjectReference Include="..\VeryDeli.Logic\VeryDeli.Logic.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\Base\" />
   </ItemGroup>
 
 

@@ -7,5 +7,6 @@ namespace VeryDeli.Logic.Dispatchers
     public interface ICommandDispatcher
     {
         Task<ExecuteResult> Execute(ICommand command);
+        Task<ExecuteResult> ExecuteWithTransaction(ICommand command);
     }
 }
