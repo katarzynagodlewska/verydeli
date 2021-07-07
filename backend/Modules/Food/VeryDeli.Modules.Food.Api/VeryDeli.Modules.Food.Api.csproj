@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VeryDeli.Modules.Order.Infrastructure\VeryDeli.Modules.Order.Infrastructure.csproj" />
+    <ProjectReference Include="..\VeryDeli.Modules.Food.Infrastructure\VeryDeli.Modules.Food.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

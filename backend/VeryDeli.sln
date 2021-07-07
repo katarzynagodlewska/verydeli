@@ -26,9 +26,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A5013F91-C0E0-44F9-8558-3144AD133895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Api.Tests.E2E", "Api\Tests\VeryDeli.Api.Tests.E2E\VeryDeli.Api.Tests.E2E.csproj", "{63BCD1E0-D1F9-4DFF-95B2-BA13B10ECC47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Api.Tests.E2E", "Api\Tests\VeryDeli.Api.Tests.E2E\VeryDeli.Api.Tests.E2E.csproj", "{63BCD1E0-D1F9-4DFF-95B2-BA13B10ECC47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Api", "Api\VeryDeli.Api\VeryDeli.Api.csproj", "{28E17679-6A72-43DB-B112-A687802BE008}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Api", "Api\VeryDeli.Api\VeryDeli.Api.csproj", "{28E17679-6A72-43DB-B112-A687802BE008}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C4ACC8A4-017E-4248-86E5-18D51A5599C3}"
 EndProject
@@ -40,11 +40,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Food", "Food", "{0AFB8386-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3495974E-017A-4CD0-AA2C-1D0697A53C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Api", "Modules\Order\VeryDeli.Modules.Order.Api\VeryDeli.Modules.Order.Api.csproj", "{F2F32F49-06C9-4743-BD8C-D86C1668D5DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Modules.Order.Api", "Modules\Order\VeryDeli.Modules.Order.Api\VeryDeli.Modules.Order.Api.csproj", "{F2F32F49-06C9-4743-BD8C-D86C1668D5DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Tests.Integration", "Modules\Order\Tests\VeryDeli.Modules.Order.Tests.Integration\VeryDeli.Modules.Order.Tests.Integration.csproj", "{14FC2389-C95A-4FC4-9EC9-C3D716E62307}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Modules.Order.Tests.Integration", "Modules\Order\Tests\VeryDeli.Modules.Order.Tests.Integration\VeryDeli.Modules.Order.Tests.Integration.csproj", "{14FC2389-C95A-4FC4-9EC9-C3D716E62307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Tests.Logic.Unit", "Modules\Order\Tests\VeryDeli.Modules.Order.Tests.Logic.Unit\VeryDeli.Modules.Order.Tests.Logic.Unit.csproj", "{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VeryDeli.Modules.Order.Tests.Logic.Unit", "Modules\Order\Tests\VeryDeli.Modules.Order.Tests.Logic.Unit\VeryDeli.Modules.Order.Tests.Logic.Unit.csproj", "{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Data", "Modules\Order\VeryDeli.Modules.Order.Data\VeryDeli.Modules.Order.Data.csproj", "{44DF81F9-2566-4F94-808B-B5654A735528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Logic", "Modules\Order\VeryDeli.Modules.Order.Logic\VeryDeli.Modules.Order.Logic.csproj", "{61BD8D03-E093-4750-832F-DDF94CD762F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Order.Infrastructure", "Modules\Order\VeryDeli.Modules.Order.Infrastructure\VeryDeli.Modules.Order.Infrastructure.csproj", "{F42959AF-4EC0-414F-BCB7-D89D2417F7ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Users.Api", "Modules\Users\VeryDeli.Modules.Users.Api\VeryDeli.Modules.Users.Api.csproj", "{39839169-98E6-49B8-8EBF-995F7388C2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Users.Core", "Modules\Users\VeryDeli.Modules.Users.Core\VeryDeli.Modules.Users.Core.csproj", "{02597503-A8D5-4072-8E11-C6D99F3913DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Api", "Modules\Food\VeryDeli.Modules.Food.Api\VeryDeli.Modules.Food.Api.csproj", "{7B8AA2CD-F32F-464B-8B15-B7565F765F4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D56F650B-BAA4-440E-BEDC-CFE3664A80AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Logic", "Modules\Food\VeryDeli.Modules.Food.Logic\VeryDeli.Modules.Food.Logic.csproj", "{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Data", "Modules\Food\VeryDeli.Modules.Food.Data\VeryDeli.Modules.Food.Data.csproj", "{9AC38A8B-5EF1-43A3-87DD-20FAF732717E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Infrastructure", "Modules\Food\VeryDeli.Modules.Food.Infrastructure\VeryDeli.Modules.Food.Infrastructure.csproj", "{8D1D5825-2B98-4076-B941-A67A07AAB777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Tests.Integration", "Modules\Food\Tests\VeryDeli.Modules.Food.Tests.Integration\VeryDeli.Modules.Food.Tests.Integration.csproj", "{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Food.Tests.Logic.Unit", "Modules\Food\Tests\VeryDeli.Modules.Food.Tests.Logic.Unit\VeryDeli.Modules.Food.Tests.Logic.Unit.csproj", "{D0744835-52F7-4495-B5EB-5452EA8CB8F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D16CA5EC-E26B-4B97-8046-AEFC963518DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Users.Tests.Integration", "Modules\Users\Tests\VeryDeli.Modules.Users.Tests.Integration\VeryDeli.Modules.Users.Tests.Integration.csproj", "{96E4078E-0319-41C6-A38D-059FBE6164D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeryDeli.Modules.Users.Tests.Core.Unit", "VeryDeli.Modules.Users.Tests.Core.Unit\VeryDeli.Modules.Users.Tests.Core.Unit.csproj", "{8966C8DE-AAAF-4510-8633-312172EF9F37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +122,58 @@ Global
 		{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44DF81F9-2566-4F94-808B-B5654A735528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44DF81F9-2566-4F94-808B-B5654A735528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44DF81F9-2566-4F94-808B-B5654A735528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44DF81F9-2566-4F94-808B-B5654A735528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61BD8D03-E093-4750-832F-DDF94CD762F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61BD8D03-E093-4750-832F-DDF94CD762F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61BD8D03-E093-4750-832F-DDF94CD762F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61BD8D03-E093-4750-832F-DDF94CD762F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42959AF-4EC0-414F-BCB7-D89D2417F7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42959AF-4EC0-414F-BCB7-D89D2417F7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42959AF-4EC0-414F-BCB7-D89D2417F7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42959AF-4EC0-414F-BCB7-D89D2417F7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39839169-98E6-49B8-8EBF-995F7388C2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39839169-98E6-49B8-8EBF-995F7388C2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39839169-98E6-49B8-8EBF-995F7388C2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39839169-98E6-49B8-8EBF-995F7388C2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02597503-A8D5-4072-8E11-C6D99F3913DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02597503-A8D5-4072-8E11-C6D99F3913DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02597503-A8D5-4072-8E11-C6D99F3913DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02597503-A8D5-4072-8E11-C6D99F3913DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8AA2CD-F32F-464B-8B15-B7565F765F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8AA2CD-F32F-464B-8B15-B7565F765F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8AA2CD-F32F-464B-8B15-B7565F765F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8AA2CD-F32F-464B-8B15-B7565F765F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC38A8B-5EF1-43A3-87DD-20FAF732717E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC38A8B-5EF1-43A3-87DD-20FAF732717E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC38A8B-5EF1-43A3-87DD-20FAF732717E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC38A8B-5EF1-43A3-87DD-20FAF732717E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1D5825-2B98-4076-B941-A67A07AAB777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1D5825-2B98-4076-B941-A67A07AAB777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1D5825-2B98-4076-B941-A67A07AAB777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1D5825-2B98-4076-B941-A67A07AAB777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0744835-52F7-4495-B5EB-5452EA8CB8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0744835-52F7-4495-B5EB-5452EA8CB8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0744835-52F7-4495-B5EB-5452EA8CB8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0744835-52F7-4495-B5EB-5452EA8CB8F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E4078E-0319-41C6-A38D-059FBE6164D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E4078E-0319-41C6-A38D-059FBE6164D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E4078E-0319-41C6-A38D-059FBE6164D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E4078E-0319-41C6-A38D-059FBE6164D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8966C8DE-AAAF-4510-8633-312172EF9F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8966C8DE-AAAF-4510-8633-312172EF9F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8966C8DE-AAAF-4510-8633-312172EF9F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8966C8DE-AAAF-4510-8633-312172EF9F37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +192,21 @@ Global
 		{F2F32F49-06C9-4743-BD8C-D86C1668D5DE} = {3F51D301-247D-44C0-B60E-B29AB61E988C}
 		{14FC2389-C95A-4FC4-9EC9-C3D716E62307} = {3495974E-017A-4CD0-AA2C-1D0697A53C6C}
 		{9E732FAB-30C7-4A98-AD0D-B7E6FF98D5A9} = {3495974E-017A-4CD0-AA2C-1D0697A53C6C}
+		{44DF81F9-2566-4F94-808B-B5654A735528} = {3F51D301-247D-44C0-B60E-B29AB61E988C}
+		{61BD8D03-E093-4750-832F-DDF94CD762F5} = {3F51D301-247D-44C0-B60E-B29AB61E988C}
+		{F42959AF-4EC0-414F-BCB7-D89D2417F7ED} = {3F51D301-247D-44C0-B60E-B29AB61E988C}
+		{39839169-98E6-49B8-8EBF-995F7388C2E0} = {4FF31565-3503-455E-9C24-65DDADECEBE4}
+		{02597503-A8D5-4072-8E11-C6D99F3913DA} = {4FF31565-3503-455E-9C24-65DDADECEBE4}
+		{7B8AA2CD-F32F-464B-8B15-B7565F765F4D} = {0AFB8386-5758-4999-AC7D-1C0740A840AD}
+		{D56F650B-BAA4-440E-BEDC-CFE3664A80AF} = {0AFB8386-5758-4999-AC7D-1C0740A840AD}
+		{FC742FD4-31B7-42A6-B4A6-08DCFFF5B3D9} = {0AFB8386-5758-4999-AC7D-1C0740A840AD}
+		{9AC38A8B-5EF1-43A3-87DD-20FAF732717E} = {0AFB8386-5758-4999-AC7D-1C0740A840AD}
+		{8D1D5825-2B98-4076-B941-A67A07AAB777} = {0AFB8386-5758-4999-AC7D-1C0740A840AD}
+		{C5FB66F3-FDFF-46F3-BB08-8F1EA1CBE5AA} = {D56F650B-BAA4-440E-BEDC-CFE3664A80AF}
+		{D0744835-52F7-4495-B5EB-5452EA8CB8F9} = {D56F650B-BAA4-440E-BEDC-CFE3664A80AF}
+		{D16CA5EC-E26B-4B97-8046-AEFC963518DD} = {4FF31565-3503-455E-9C24-65DDADECEBE4}
+		{96E4078E-0319-41C6-A38D-059FBE6164D1} = {D16CA5EC-E26B-4B97-8046-AEFC963518DD}
+		{8966C8DE-AAAF-4510-8633-312172EF9F37} = {D16CA5EC-E26B-4B97-8046-AEFC963518DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E0E3F90-7D9D-41CE-A225-2284C7CFFCCA}

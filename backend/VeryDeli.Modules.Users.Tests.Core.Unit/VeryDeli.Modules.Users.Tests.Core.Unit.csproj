@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\VeryDeli.Modules.Order.Logic\VeryDeli.Modules.Order.Logic.csproj" />
+    <ProjectReference Include="..\Modules\Users\VeryDeli.Modules.Users.Core\VeryDeli.Modules.Users.Core.csproj" />
   </ItemGroup>
 
 </Project>
