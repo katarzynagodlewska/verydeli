@@ -62,12 +62,22 @@ namespace VeryDeli.Api
             app.UseRouting();
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            app.UseAuthentication();
+
             app.UseAuthorization();
             //app.UseMiddleware<JwtMiddleware>();
 
+            foreach (var module in _modules)
+            {
+                module.Use(app);
+            }
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
