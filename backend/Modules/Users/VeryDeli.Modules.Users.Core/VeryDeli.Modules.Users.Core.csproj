@@ -8,4 +8,14 @@
     <ProjectReference Include="..\..\..\Libraries\VeryDeli.Libraries.Infrastructure\VeryDeli.Libraries.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Responses\" />
+    <Folder Include="QueryHandlers\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.8" />
+  </ItemGroup>
+
 </Project>
