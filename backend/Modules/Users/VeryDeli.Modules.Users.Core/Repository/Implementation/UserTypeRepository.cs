@@ -3,9 +3,9 @@ using VeryDeli.Libraries.Infrastructure.Repository;
 using VeryDeli.Modules.Users.Core.Data;
 using VeryDeli.Modules.Users.Core.Data.Domains;
 
-namespace VeryDeli.Data.Repositories.Implementation
+namespace VeryDeli.Modules.Users.Core.Repository.Implementation
 {
-    public class UserTypeRepository : CrudRepository<UserType, Modules.Users.Core.Data.Enums.UserType>, IUserTypeRepository
+    public class UserTypeRepository : CrudRepository<UserType, Data.Enums.UserType>, IUserTypeRepository
     {
         public UserTypeRepository(UserModuleDatabaseContext context) : base(context)
         {

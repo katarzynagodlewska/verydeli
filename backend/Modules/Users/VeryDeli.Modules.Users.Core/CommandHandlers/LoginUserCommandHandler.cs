@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using VeryDeli.Modules.Users.Core.Commands;
-using VeryDeli.Modules.Users.Core.Models.Responses;
+using VeryDeli.Modules.Users.Core.Responses;
 using VeryDeli.Modules.Users.Core.Services;
 
 namespace VeryDeli.Modules.Users.Core.CommandHandlers

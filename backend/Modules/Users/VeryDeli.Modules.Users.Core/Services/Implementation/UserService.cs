@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using VeryDeli.Libraries.Abstraction.Options;
 using VeryDeli.Modules.Users.Core.Data.Domains;
-using VeryDeli.Modules.Users.Core.Models.Responses;
 using VeryDeli.Modules.Users.Core.Repository.Abstraction;
+using VeryDeli.Modules.Users.Core.Responses;
 
 namespace VeryDeli.Modules.Users.Core.Services.Implementation
 {

@@ -2,51 +2,55 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using VeryDeli.Libraries.Abstraction.Modules;
+using VeryDeli.Libraries.Infrastructure.Extensions;
 
 namespace VeryDeli.Modules.Food.Api
 {
-    internal class FoodModule : IModule
-    {
-        public string Name => "Food";
+    //internal class FoodModule : IModule
+    //{
+    //    public string Name => "Food";
 
-        public string Path => "Food-Module";
+    //    public string Path => "VeryDeli.Modules.Food";
 
-        public void Register(IServiceCollection services)
-        {
-     //       var domainAssembliesTypes = AppDomain.CurrentDomain.GetAssemblies()
-     //.SelectMany(t => t.GetTypes());
+    //    public void Register(IServiceCollection services)
+    //    {
+    //        //services
+    //        // .RegisterComponents($"{Path}.Core", $"{Path}.Core");
 
-     //       var repositoryTypesList = domainAssembliesTypes
-     //            .Where(t => t.IsClass && t.Namespace == "MailingList.Data.Repository.Implementation").ToArray();
+    //        //       var domainAssembliesTypes = AppDomain.CurrentDomain.GetAssemblies()
+    //        //.SelectMany(t => t.GetTypes());
 
-     //       services.Scan(scan => scan
-     //            .FromAssembliesOf(repositoryTypesList)
-     //            .AddClasses(classes => classes.AssignableTo(typeof(IRepository<,>)))
-     //            .AsImplementedInterfaces()
-     //            .WithTransientLifetime());
+    //        //       var repositoryTypesList = domainAssembliesTypes
+    //        //            .Where(t => t.IsClass && t.Namespace == "MailingList.Data.Repository.Implementation").ToArray();
 
-     //       services.AddTransient<IdentityValidator>();
+    //        //       services.Scan(scan => scan
+    //        //            .FromAssembliesOf(repositoryTypesList)
+    //        //            .AddClasses(classes => classes.AssignableTo(typeof(IRepository<,>)))
+    //        //            .AsImplementedInterfaces()
+    //        //            .WithTransientLifetime());
 
-     //       var serviceTypesList = domainAssembliesTypes
-     //           .Where(t => t.IsClass && t.Namespace == "MailingList.Logic.Services.Implementation").ToArray();
+    //        //       services.AddTransient<IdentityValidator>();
 
-     //       services.Scan(scan => scan
-     //           .FromAssembliesOf(serviceTypesList)
-     //           .AddClasses(classes => classes.AssignableTo(typeof(IService)))
-     //           .AsImplementedInterfaces()
-     //           .WithTransientLifetime());
+    //        //       var serviceTypesList = domainAssembliesTypes
+    //        //           .Where(t => t.IsClass && t.Namespace == "MailingList.Logic.Services.Implementation").ToArray();
 
-     //       var commandHandlerAndQueryHandlerTypes = domainAssembliesTypes
-     //           .Where(t => t.IsClass && t.Namespace != null &&
-     //           (t.Namespace.StartsWith("MailingList.Logic.CommandHandlers") || t.Namespace.StartsWith("MailingList.Logic.QueryHandlers")))
-     //           .ToArray();
+    //        //       services.Scan(scan => scan
+    //        //           .FromAssembliesOf(serviceTypesList)
+    //        //           .AddClasses(classes => classes.AssignableTo(typeof(IService)))
+    //        //           .AsImplementedInterfaces()
+    //        //           .WithTransientLifetime());
 
-          //  services.AddMediatR(commandHandlerAndQueryHandlerTypes);
-        }
+    //        //       var commandHandlerAndQueryHandlerTypes = domainAssembliesTypes
+    //        //           .Where(t => t.IsClass && t.Namespace != null &&
+    //        //           (t.Namespace.StartsWith("MailingList.Logic.CommandHandlers") || t.Namespace.StartsWith("MailingList.Logic.QueryHandlers")))
+    //        //           .ToArray();
 
-        public void Use(IApplicationBuilder app)
-        {
+    //        //  services.AddMediatR(commandHandlerAndQueryHandlerTypes);
+    //    }
+
+    //    public void Use(IApplicationBuilder app)
+    //    {
          
-        }
-    }
+    //    }
+    //}
 }

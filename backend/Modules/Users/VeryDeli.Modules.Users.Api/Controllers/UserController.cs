@@ -6,7 +6,7 @@ using VeryDeli.Modules.Users.Core.Commands;
 
 namespace VeryDeli.Modules.Users.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/users/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {

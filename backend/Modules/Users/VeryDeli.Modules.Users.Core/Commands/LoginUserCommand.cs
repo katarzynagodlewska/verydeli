@@ -1,6 +1,6 @@
 ﻿using System;
 using MediatR;
-using VeryDeli.Modules.Users.Core.Models.Responses;
+using VeryDeli.Modules.Users.Core.Responses;
 
 namespace VeryDeli.Modules.Users.Core.Commands
 {

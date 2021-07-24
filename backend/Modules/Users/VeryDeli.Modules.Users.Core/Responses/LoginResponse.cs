@@ -1,6 +1,6 @@
 ﻿using VeryDeli.Modules.Users.Core.Data.Enums;
 
-namespace VeryDeli.Modules.Users.Core.Models.Responses
+namespace VeryDeli.Modules.Users.Core.Responses
 {
     public class LoginResponse
     {

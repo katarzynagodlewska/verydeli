@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using VeryDeli.Libraries.Infrastructure.Postgres;
 using VeryDeli.Modules.Users.Core.Data;
+using VeryDeli.Modules.Users.Core.Data.Domains;
 
 namespace VeryDeli.Modules.Users.Core.Extensions
 {
@@ -10,11 +13,9 @@ namespace VeryDeli.Modules.Users.Core.Extensions
         {
             services.AddPostgres<UserModuleDatabaseContext>();
 
-            return services;
-        }
+            services.AddIdentity<User, IdentityRole<Guid>>()
+                .AddEntityFrameworkStores<UserModuleDatabaseContext>();
 
-        public static IServiceCollection AddLogic(this IServiceCollection services)
-        {
             return services;
         }
     }

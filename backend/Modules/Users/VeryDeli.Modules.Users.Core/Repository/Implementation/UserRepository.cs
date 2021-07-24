@@ -4,7 +4,7 @@ using VeryDeli.Modules.Users.Core.Data;
 using VeryDeli.Modules.Users.Core.Data.Domains;
 using VeryDeli.Modules.Users.Core.Repository.Abstraction;
 
-namespace VeryDeli.Data.Repositories.Implementation
+namespace VeryDeli.Modules.Users.Core.Repository.Implementation
 {
     public class UserRepository : CrudRepository<User, Guid>, IUserRepository
     {

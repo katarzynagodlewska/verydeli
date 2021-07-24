@@ -48,7 +48,6 @@ namespace VeryDeli.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.EnvironmentName != "Test")
             {
                 var swaggerOptions = new SwaggerOptions();
@@ -57,6 +56,7 @@ namespace VeryDeli.Api
                 app.UseSwagger(option => option.RouteTemplate = swaggerOptions.JsonRoute);
                 app.UseSwaggerUI(option => option.SwaggerEndpoint(swaggerOptions.UIEndpoint, swaggerOptions.Description));
             }
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
