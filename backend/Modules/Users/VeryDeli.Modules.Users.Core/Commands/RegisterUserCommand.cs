@@ -1,5 +1,4 @@
-﻿using System;
-using MediatR;
+﻿using MediatR;
 using VeryDeli.Modules.Users.Core.Data.Enums;
 
 namespace VeryDeli.Modules.Users.Core.Commands

@@ -18,7 +18,7 @@ namespace VeryDeli.Modules.Users.Api.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] IRequest<RegisterUserCommand> registerUserCommand)
+        public async Task<IActionResult> Register([FromBody] RegisterUserCommand registerUserCommand)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace VeryDeli.Modules.Users.Api.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login([FromBody] IRequest<LoginUserCommand> loginUserCommand)
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand loginUserCommand)
         {
             try
             {
