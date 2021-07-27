@@ -8,4 +8,10 @@
     <ProjectReference Include="..\VeryDeli.Modules.Order.Data\VeryDeli.Modules.Order.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CommandHandlers\" />
+    <Folder Include="QueryHandlers\" />
+    <Folder Include="Queries\" />
+  </ItemGroup>
+
 </Project>
