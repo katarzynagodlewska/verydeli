@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VeryDeli.Modules.Food.Logic\VeryDeli.Modules.Food.Logic.csproj" />
+    <ProjectReference Include="..\VeryDeli.Modules.Food.Infrastructure\VeryDeli.Modules.Food.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
