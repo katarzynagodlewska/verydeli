@@ -5,13 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VeryDeli.Modules.Order.Data\VeryDeli.Modules.Order.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="CommandHandlers\" />
     <Folder Include="QueryHandlers\" />
     <Folder Include="Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Food\VeryDeli.Modules.Food.Infrastructure\VeryDeli.Modules.Food.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

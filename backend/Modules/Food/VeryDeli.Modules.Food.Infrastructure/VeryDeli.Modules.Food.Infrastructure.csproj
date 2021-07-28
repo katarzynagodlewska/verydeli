@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Libraries\VeryDeli.Libraries.Infrastructure\VeryDeli.Libraries.Infrastructure.csproj" />
-    <ProjectReference Include="..\VeryDeli.Modules.Food.Logic\VeryDeli.Modules.Food.Logic.csproj" />
+    <ProjectReference Include="..\VeryDeli.Modules.Food.Data\VeryDeli.Modules.Food.Data.csproj" />
   </ItemGroup>
 
 </Project>
