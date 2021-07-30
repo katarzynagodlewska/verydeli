@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using VeryDeli.Modules.Order.Logic.Commands;
+using VeryDeli.Modules.Order.Logic.Models;
 
 namespace VeryDeli.Modules.Order.Api.Controllers
 {
@@ -23,7 +24,7 @@ namespace VeryDeli.Modules.Order.Api.Controllers
             try
             {
                 var user = HttpContext.GetUser();
-                return Ok(await _mediator.Execute(new CreateOrderCommand() { OrderModel = orderModel, UserId = user.Id }));
+                return Ok(await _mediator.Send(new CreateOrderCommand() { OrderModel = orderModel, UserId = user.Id }));
             }
             catch (Exception e)
             {
